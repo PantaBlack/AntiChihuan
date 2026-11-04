@@ -1,0 +1,398 @@
+@model NoMasChihuan.Models.ViewModels.DashboardViewModel
+@{
+    ViewData["Title"] = "Panel Principal";
+    Layout = "_Layout";
+}
+
+<!-- Encabezado y Selector de Mes -->
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+    <div>
+        <h2 class="fw-bold mb-1 tracking-tight text-white">Hola, @Model.UsuarioNombre 👋</h2>
+        <p class="text-muted small mb-0">Resumen y control financiero para <strong class="text-light">@Model.NombreMesActual @Model.AnioActual</strong></p>
+    </div>
+
+    <div class="d-flex align-items-center gap-2">
+        <form method="get" asp-action="Index" class="d-flex align-items-center gap-2">
+            <select name="mes" class="form-select form-select-sm" onchange="this.form.submit()">
+                @for (int m = 1; m <= 12; m++)
+                {
+                    var mName = new System.Globalization.CultureInfo("es-PE").DateTimeFormat.GetMonthName(m);
+                    mName = char.ToUpper(mName[0]) + mName[1..];
+                    <option value="@m" selected="@(m == Model.MesActual)">@mName</option>
+                }
+            </select>
+            <select name="anio" class="form-select form-select-sm" onchange="this.form.submit()">
+                @for (int a = DateTime.Today.Year - 1; a <= DateTime.Today.Year + 1; a++)
+                {
+                    <option value="@a" selected="@(a == Model.AnioActual)">@a</option>
+                }
+            </select>
+        </form>
+
+        <a asp-controller="IA" asp-action="Index" class="btn btn-warning btn-sm d-flex align-items-center gap-1 shadow-sm fw-bold">
+            <i class="bi bi-stars"></i> <span>Diagnóstico IA</span>
+        </a>
+    </div>
+</div>
+
+<!-- Semáforo AntiChihuan Banner -->
+@{
+    var alertBg = Model.EstadoSemaforo switch
+    {
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Chihuan => "background-color: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444;",
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Alerta => "background-color: rgba(245, 158, 11, 0.15); border: 1px solid #f59e0b;",
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Aceptable => "background-color: rgba(6, 182, 212, 0.15); border: 1px solid #06b6d4;",
+        _ => "background-color: rgba(16, 185, 129, 0.15); border: 1px solid #10b981;"
+    };
+
+    var alertIconColor = Model.EstadoSemaforo switch
+    {
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Chihuan => "text-danger",
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Alerta => "text-warning",
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Aceptable => "text-info",
+        _ => "text-success"
+    };
+
+    var alertIcon = Model.EstadoSemaforo switch
+    {
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Chihuan => "bi-exclamation-diamond-fill",
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Alerta => "bi-exclamation-triangle-fill",
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Aceptable => "bi-info-circle-fill",
+        _ => "bi-check-circle-fill"
+    };
+
+    var estadoTexto = Model.EstadoSemaforo switch
+    {
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Chihuan => "ESTADO CRÍTICO: RIESGO CHIHUÁN",
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Alerta => "ESTADO DE ALERTA: REVISA TUS GASTOS",
+        NoMasChihuan.Models.ViewModels.EstadoFinanciero.Aceptable => "ESTADO REGULAR: AUMENTA TU AHORRO",
+        _ => "ESTADO EXCELENTE: FINANZAS SALUDABLES"
+    };
+}
+
+<div class="p-3 rounded-3 shadow-sm mb-4 d-flex align-items-center gap-3" style="@alertBg">
+    <i class="bi @alertIcon fs-3 @alertIconColor"></i>
+    <div class="flex-grow-1">
+        <div class="d-flex align-items-center gap-2">
+            <span class="fw-bold tracking-tight text-white small">@estadoTexto</span>
+            <span class="badge bg-dark border border-secondary" style="font-size: 0.68rem;">Semáforo Financiero</span>
+        </div>
+        <div class="small mt-1 text-light">@Model.MensajeSemaforo</div>
+    </div>
+    <a asp-controller="IA" asp-action="Index" class="btn btn-sm btn-outline-light d-none d-md-block">
+        Ver Diagnóstico IA <i class="bi bi-arrow-right"></i>
+    </a>
+</div>
+
+<!-- KPI Cards -->
+<div class="row g-3 mb-4">
+    <!-- Ingresos -->
+    <div class="col-sm-6 col-xl-3">
+        <div class="card p-3 h-100" style="background-color: #131b2e; border: 1px solid #2a374f;">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="small fw-semibold" style="color: #94a3b8;">Ingresos del Mes</span>
+                <div class="stat-icon" style="background-color: rgba(16, 185, 129, 0.15); color: #34d399;">
+                    <i class="bi bi-arrow-down-left fs-5"></i>
+                </div>
+            </div>
+            <h3 class="fw-bold mb-1" style="color: #34d399;">S/ @Model.TotalIngresosMes.ToString("N2")</h3>
+            <span class="small" style="color: #64748b;"><i class="bi bi-calendar-check me-1"></i> @Model.NombreMesActual</span>
+        </div>
+    </div>
+
+    <!-- Gastos -->
+    <div class="col-sm-6 col-xl-3">
+        <div class="card p-3 h-100" style="background-color: #131b2e; border: 1px solid #2a374f;">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="small fw-semibold" style="color: #94a3b8;">Gastos del Mes</span>
+                <div class="stat-icon" style="background-color: rgba(244, 63, 94, 0.15); color: #fb7185;">
+                    <i class="bi bi-arrow-up-right fs-5"></i>
+                </div>
+            </div>
+            <h3 class="fw-bold mb-1" style="color: #fb7185;">S/ @Model.TotalGastosMes.ToString("N2")</h3>
+            <span class="small" style="color: #64748b;">
+                @if (Model.TotalIngresosMes > 0)
+                {
+                    <span class="text-light">@((Model.TotalGastosMes / Model.TotalIngresosMes * 100).ToString("F1"))% de los ingresos</span>
+                }
+                else
+                {
+                    <span>Sin ingresos aún</span>
+                }
+            </span>
+        </div>
+    </div>
+
+    <!-- Balance / Saldo -->
+    <div class="col-sm-6 col-xl-3">
+        <div class="card p-3 h-100" style="background-color: #131b2e; border: 1px solid #2a374f;">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="small fw-semibold" style="color: #94a3b8;">Balance Disponible</span>
+                <div class="stat-icon" style="background-color: rgba(99, 102, 241, 0.15); color: #818cf8;">
+                    <i class="bi bi-wallet2 fs-5"></i>
+                </div>
+            </div>
+            <h3 class="fw-bold mb-1 @(Model.BalanceMes >= 0 ? "text-white" : "text-danger")">
+                S/ @Model.BalanceMes.ToString("N2")
+            </h3>
+            <span class="small fw-medium @(Model.BalanceMes >= 0 ? "text-success" : "text-danger")">
+                <i class="bi @(Model.BalanceMes >= 0 ? "bi-check2-circle" : "bi-exclamation-triangle") me-1"></i>
+                @(Model.BalanceMes >= 0 ? "Superávit mensual" : "Déficit mensual")
+            </span>
+        </div>
+    </div>
+
+    <!-- Gastos Hormiga -->
+    <div class="col-sm-6 col-xl-3">
+        <div class="card p-3 h-100" style="background-color: #131b2e; border: 1px solid #2a374f;">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="small fw-semibold" style="color: #94a3b8;">Fuga Gastos Hormiga</span>
+                <div class="stat-icon" style="background-color: rgba(245, 158, 11, 0.15); color: #fbbf24;">
+                    <i class="bi bi-cup-hot fs-5"></i>
+                </div>
+            </div>
+            <h3 class="fw-bold mb-1 text-warning">S/ @Model.TotalGastosHormigaMes.ToString("N2")</h3>
+            <span class="small text-light">
+                <strong class="text-warning">@Model.PorcentajeGastosHormiga.ToString("F1")%</strong> del total de tus gastos
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- Gráficos de Samir Rojas (Chart.js en Modo Oscuro) -->
+<div class="row g-4 mb-4">
+    <!-- Gráfico de Dona: Distribución de Gastos -->
+    <div class="col-lg-5">
+        <div class="card p-4 h-100" style="background-color: #131b2e; border: 1px solid #2a374f;">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="fw-bold mb-0 text-white">Gastos por Categoría</h5>
+                <span class="badge border border-secondary text-light" style="background-color: #1e293b;">Distribución</span>
+            </div>
+
+            @if (Model.GastosPorCategoria.Any())
+            {
+                <div style="position: relative; height: 260px;">
+                    <canvas id="categoriaChart"></canvas>
+                </div>
+                <div class="mt-3">
+                    <ul class="list-group list-group-flush small">
+                        @foreach (var cat in Model.GastosPorCategoria.Take(4))
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-1 border-0">
+                                <span class="d-flex align-items-center gap-2 text-light">
+                                    <span class="d-inline-block rounded-circle" style="width: 10px; height: 10px; background-color: @cat.ColorHex;"></span>
+                                    @cat.Categoria
+                                </span>
+                                <span class="fw-bold text-white">S/ @cat.Monto.ToString("N2") (@cat.Porcentaje.ToString("F1")%)</span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-5 text-muted">
+                    <i class="bi bi-pie-chart fs-1 d-block mb-2 text-secondary"></i>
+                    Aún no registras gastos este mes.
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Gráfico de Barras: Histórico 6 Meses -->
+    <div class="col-lg-7">
+        <div class="card p-4 h-100" style="background-color: #131b2e; border: 1px solid #2a374f;">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="fw-bold mb-0 text-white">Ingresos vs Gastos (Últimos 6 Meses)</h5>
+                <span class="badge border border-secondary text-light" style="background-color: #1e293b;">Comparativa</span>
+            </div>
+            <div style="position: relative; height: 320px;">
+                <canvas id="historicoChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sección Inferior: Transacciones Recientes y Alertas IA -->
+<div class="row g-4">
+    <!-- Tabla de Transacciones Recientes -->
+    <div class="col-lg-8">
+        <div class="card p-4" style="background-color: #131b2e; border: 1px solid #2a374f;">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="fw-bold mb-0 text-white">Últimos Movimientos</h5>
+                <a asp-controller="Transacciones" asp-action="Index" class="btn btn-outline-light btn-sm">
+                    Ver todas <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+            @if (Model.UltimasTransacciones.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Descripción</th>
+                                <th>Categoría</th>
+                                <th class="text-end">Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var t in Model.UltimasTransacciones)
+                            {
+                                <tr>
+                                    <td class="small text-muted">@t.Fecha.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <div class="fw-semibold text-white">@t.Descripcion</div>
+                                        @if (t.EsGastoHormiga)
+                                        {
+                                            <span class="badge" style="background-color: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.4); font-size: 0.68rem;">Gasto Hormiga 🐜</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <span class="badge border" style="background-color: #1e293b; border-color: #2a374f !important; color: #e2e8f0;">
+                                            <i class="bi @(t.Categoria?.Icono ?? "bi-tag") me-1"></i> @(t.Categoria?.Nombre ?? "General")
+                                        </span>
+                                    </td>
+                                    <td class="text-end fw-bold @(t.Tipo == NoMasChihuan.Models.TipoTransaccion.Ingreso ? "text-success" : "text-danger")">
+                                        @(t.Tipo == NoMasChihuan.Models.TipoTransaccion.Ingreso ? "+" : "-") S/ @t.Monto.ToString("N2")
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-4 text-muted">
+                    No hay transacciones registradas aún.
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Widget de Inteligencia Artificial (Alexis Huerta) -->
+    <div class="col-lg-4">
+        <div class="card p-4 h-100" style="background-color: #131b2e; border: 1px solid #2a374f;">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge p-2 rounded-3 text-dark bg-warning"><i class="bi bi-robot fs-5"></i></span>
+                    <h5 class="fw-bold mb-0 text-white">Agente IA AntiChihuan</h5>
+                </div>
+            </div>
+
+            <p class="small mb-3" style="color: #94a3b8;">
+                Tu asesor financiero inteligente evalúa tus consumos para evitar que te quedes sin presupuesto a fin de mes.
+            </p>
+
+            @if (Model.AlertasIA.Any())
+            {
+                <div class="d-flex flex-column gap-2 mb-3">
+                    @foreach (var alerta in Model.AlertasIA)
+                    {
+                        <div class="p-3 rounded-3" style="background-color: #1a233a; border: 1px solid #2a374f;">
+                            <div class="d-flex align-items-start gap-2">
+                                <i class="bi bi-lightbulb-fill text-warning mt-1"></i>
+                                <div>
+                                    <h6 class="fw-bold small text-white mb-1">@alerta.Titulo</h6>
+                                    <p class="small mb-0" style="color: #94a3b8; font-size: 0.78rem;">@alerta.Mensaje</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="p-3 rounded-3 text-center small mb-3" style="background-color: #1a233a; border: 1px solid #2a374f; color: #94a3b8;">
+                    Aún no has solicitado un diagnóstico. Haz clic abajo para consultar a la IA.
+                </div>
+            }
+
+            <div class="mt-auto">
+                <form asp-controller="IA" asp-action="GenerarDiagnostico" method="post">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-warning text-dark fw-bold w-100 py-2 shadow-sm">
+                        <i class="bi bi-sparkles me-1"></i> Generar Nuevo Diagnóstico
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Configuración Global de Chart.js para Modo Oscuro
+        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.08)';
+
+        // Gráfico de Dona: Categorías
+        @if (Model.GastosPorCategoria.Any())
+        {
+            <text>
+            const ctxCat = document.getElementById('categoriaChart').getContext('2d');
+            new Chart(ctxCat, {
+                type: 'doughnut',
+                data: {
+                    labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.GastosPorCategoria.Select(x => x.Categoria))),
+                    datasets: [{
+                        data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.GastosPorCategoria.Select(x => x.Monto))),
+                        backgroundColor: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.GastosPorCategoria.Select(x => x.ColorHex))),
+                        borderColor: '#131b2e',
+                        borderWidth: 2,
+                        hoverOffset: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    cutout: '70%'
+                }
+            });
+            </text>
+        }
+
+        // Gráfico de Barras: Histórico 6 Meses
+        const ctxHist = document.getElementById('historicoChart').getContext('2d');
+        new Chart(ctxHist, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.HistoricoUltimosMeses.Select(x => x.MesNombre))),
+                datasets: [
+                    {
+                        label: 'Ingresos (S/)',
+                        data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.HistoricoUltimosMeses.Select(x => x.Ingresos))),
+                        backgroundColor: '#10b981',
+                        borderRadius: 6
+                    },
+                    {
+                        label: 'Gastos (S/)',
+                        data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.HistoricoUltimosMeses.Select(x => x.Gastos))),
+                        backgroundColor: '#f43f5e',
+                        borderRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: { display: false }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) { return 'S/ ' + value; }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+}

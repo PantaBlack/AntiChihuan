@@ -1,0 +1,178 @@
+@model NoMasChihuan.Models.ViewModels.IAPanelViewModel
+@{
+    ViewData["Title"] = "Asistente Financiero IA";
+    Layout = "_Layout";
+}
+
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+    <div>
+        <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-warning text-dark p-2 rounded-3"><i class="bi bi-robot fs-5"></i></span>
+            <h2 class="fw-bold mb-0 tracking-tight text-white">Agente de Inteligencia Artificial</h2>
+        </div>
+        <p class="text-muted small mb-0">Análisis inteligente de hábitos de consumo y alertas predictivas para evitar el "Efecto Chihuán"</p>
+    </div>
+
+    <div>
+        <form asp-action="GenerarDiagnostico" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-warning text-dark fw-bold px-4 py-2 shadow-sm">
+                <i class="bi bi-stars me-1"></i> Generar Diagnóstico con IA
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Banner Informativo -->
+<div class="card p-4 shadow-sm mb-4" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); border: 1px solid #4338ca;">
+    <div class="row align-items-center g-3">
+        <div class="col-md-8">
+            <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="badge bg-warning text-dark fw-bold">Google Gemini AI Engine</span>
+                <span class="badge bg-dark border border-secondary">Módulo de Alexis Huerta</span>
+            </div>
+            <h4 class="fw-bold text-white mb-2">¿Cómo analiza tus finanzas el Agente AntiChihuan?</h4>
+            <p class="small mb-0" style="color: #cbd5e1; line-height: 1.6;">
+                La IA procesa el balance entre tus ingresos reales y gastos del mes, identifica micro-fugas (gastos hormiga acumulados), evalúa el riesgo de sobrepasar tus presupuestos y calcula metas de ahorro accionables.
+            </p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <div class="p-3 rounded-3 text-start" style="background-color: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <small class="text-warning fw-bold d-block">Gastos Hormiga del Mes:</small>
+                <h4 class="fw-bold text-white mb-0">S/ @Model.TotalGastosHormiga.ToString("N2")</h4>
+                <small style="color: #94a3b8;">
+                    @if (Model.TotalGastosMes > 0)
+                    {
+                        <span>Representa el @((Model.TotalGastosHormiga / Model.TotalGastosMes * 100).ToString("F1"))% de tus gastos</span>
+                    }
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Diagnóstico Actual (si existe) -->
+@if (Model.UltimoDiagnostico != null)
+{
+    var riesgoBadge = Model.UltimoDiagnostico.NivelRiesgoChihuan switch
+    {
+        "Crítico" or "Critica" => "bg-danger text-white",
+        "Alto" or "Alta" => "bg-warning text-dark",
+        "Moderado" or "Medio" => "bg-info text-dark",
+        _ => "bg-success text-white"
+    };
+
+    <div class="card p-4 mb-4" style="background-color: #131b2e; border: 1px solid #2a374f;">
+        <div class="d-flex flex-wrap align-items-center justify-content-between border-bottom pb-3 mb-3 gap-2" style="border-color: #2a374f !important;">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-chat-heart-fill fs-4 text-warning"></i>
+                <h4 class="fw-bold text-white mb-0">Resultado del Diagnóstico Financiero</h4>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <span class="text-muted small">Nivel de Riesgo:</span>
+                <span class="badge @riesgoBadge px-3 py-2 fw-bold fs-6">
+                    @Model.UltimoDiagnostico.NivelRiesgoChihuan
+                </span>
+            </div>
+        </div>
+
+        <!-- Evaluación General -->
+        <div class="p-3 rounded-3 mb-4" style="background-color: #1a233a; border: 1px solid #2a374f;">
+            <h6 class="fw-bold text-warning mb-1"><i class="bi bi-cpu-fill text-info me-2"></i>Evaluación General:</h6>
+            <p class="mb-0 text-light" style="line-height: 1.6;">@Model.UltimoDiagnostico.AnalisisGeneral</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Gastos Innecesarios / Fugas -->
+            <div class="col-md-6">
+                <div class="p-3 h-100 rounded-3" style="background-color: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.3);">
+                    <h6 class="fw-bold mb-3 d-flex align-items-center gap-2" style="color: #fb7185;">
+                        <i class="bi bi-exclamation-triangle-fill"></i> Posibles Gastos Innecesarios Detectados
+                    </h6>
+                    @if (Model.UltimoDiagnostico.GastosInnecesariosDetectados.Any())
+                    {
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                            @foreach (var gasto in Model.UltimoDiagnostico.GastosInnecesariosDetectados)
+                            {
+                                <li class="d-flex align-items-start gap-2 small text-light">
+                                    <i class="bi bi-arrow-right-short fs-5 text-danger mt-n1"></i>
+                                    <span>@gasto</span>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="small text-muted mb-0">No se encontraron patrones de gastos innecesarios graves.</p>
+                    }
+                </div>
+            </div>
+
+            <!-- Recomendaciones de Ahorro -->
+            <div class="col-md-6">
+                <div class="p-3 h-100 rounded-3" style="background-color: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);">
+                    <h6 class="fw-bold mb-3 d-flex align-items-center gap-2" style="color: #34d399;">
+                        <i class="bi bi-piggy-bank-fill"></i> Recomendaciones para Aumentar tu Ahorro
+                    </h6>
+                    @if (Model.UltimoDiagnostico.RecomendacionesAhorro.Any())
+                    {
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                            @foreach (var rec in Model.UltimoDiagnostico.RecomendacionesAhorro)
+                            {
+                                <li class="d-flex align-items-start gap-2 small text-light">
+                                    <i class="bi bi-check2-circle fs-5 text-success mt-n1"></i>
+                                    <span>@rec</span>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="small text-muted mb-0">Mantén tu conducta de ahorro actual.</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        @if (Model.UltimoDiagnostico.EstimadoAhorroMensualSugerido > 0)
+        {
+            <div class="p-3 mt-4 text-center rounded-3" style="background-color: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3);">
+                <span class="small fw-semibold text-info">Meta de Ahorro Mensual Recomendada por la IA:</span>
+                <h3 class="fw-bold mb-0 text-white">S/ @Model.UltimoDiagnostico.EstimadoAhorroMensualSugerido.ToString("N2")</h3>
+            </div>
+        }
+    </div>
+}
+
+<!-- Historial de Consejos y Alertas Anteriores -->
+<div class="card p-4" style="background-color: #131b2e; border: 1px solid #2a374f;">
+    <h5 class="fw-bold text-white mb-3">Historial de Alertas y Diagnósticos Generados</h5>
+
+    @if (Model.HistorialRecomendaciones.Any())
+    {
+        <div class="d-flex flex-column gap-3">
+            @foreach (var item in Model.HistorialRecomendaciones)
+            {
+                <div class="rounded-3 p-3 d-flex align-items-start gap-3" style="background-color: #1a233a; border: 1px solid #2a374f;">
+                    <div class="stat-icon" style="background-color: rgba(245, 158, 11, 0.15); color: #fbbf24; width: 42px; height: 42px;">
+                        <i class="bi bi-bell-fill fs-5"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <h6 class="fw-bold text-white mb-0">@item.Titulo</h6>
+                            <small class="text-muted">@item.FechaGeneracion.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</small>
+                        </div>
+                        <p class="small mb-0 text-light" style="font-size: 0.85rem; color: #cbd5e1 !important;">@item.Mensaje</p>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="text-center py-4 text-muted">
+            <i class="bi bi-inbox fs-1 d-block mb-2 text-secondary"></i>
+            Aún no hay recomendaciones en el historial. Haz clic en "Generar Diagnóstico con IA".
+        </div>
+    }
+</div>

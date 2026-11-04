@@ -1,0 +1,160 @@
+@model NoMasChihuan.Models.ViewModels.PresupuestosIndexViewModel
+@{
+    ViewData["Title"] = "Presupuestos";
+    Layout = "_Layout";
+}
+
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+    <div>
+        <h2 class="fw-bold mb-1 tracking-tight text-white">Presupuestos Mensuales</h2>
+        <p class="text-muted small mb-0">Establece límites de gasto para proteger tu bolsillo y evitar excesos</p>
+    </div>
+
+    <div class="d-flex align-items-center gap-2">
+        <form method="get" asp-action="Index" class="d-flex align-items-center gap-2">
+            <select name="mes" class="form-select form-select-sm" onchange="this.form.submit()">
+                @for (int m = 1; m <= 12; m++)
+                {
+                    var mName = new System.Globalization.CultureInfo("es-PE").DateTimeFormat.GetMonthName(m);
+                    mName = char.ToUpper(mName[0]) + mName[1..];
+                    <option value="@m" selected="@(m == Model.Mes)">@mName</option>
+                }
+            </select>
+            <select name="anio" class="form-select form-select-sm" onchange="this.form.submit()">
+                @for (int a = DateTime.Today.Year - 1; a <= DateTime.Today.Year + 1; a++)
+                {
+                    <option value="@a" selected="@(a == Model.Anio)">@a</option>
+                }
+            </select>
+        </form>
+
+        <a asp-action="Create" class="btn btn-primary btn-sm rounded-pill px-3 shadow-sm">
+            <i class="bi bi-plus-lg me-1"></i> Definir Presupuesto
+        </a>
+    </div>
+</div>
+
+<!-- Resumen Global de Presupuesto -->
+<div class="card p-4 mb-4" style="background-color: #131b2e; border: 1px solid #2a374f;">
+    <div class="row align-items-center g-4">
+        <div class="col-md-4">
+            <span class="text-muted small fw-semibold">Presupuesto Global Asignado</span>
+            <h3 class="fw-bold text-white mb-0">S/ @Model.PresupuestoTotal.ToString("N2")</h3>
+        </div>
+        <div class="col-md-4">
+            <span class="text-muted small fw-semibold">Total Gastado este Mes</span>
+            <h3 class="fw-bold @(Model.GastoTotalMes > Model.PresupuestoTotal && Model.PresupuestoTotal > 0 ? "text-danger" : "text-info") mb-0">
+                S/ @Model.GastoTotalMes.ToString("N2")
+            </h3>
+        </div>
+        <div class="col-md-4">
+            <span class="text-muted small fw-semibold">Consumo de Presupuesto</span>
+            <h3 class="fw-bold mb-0 @(Model.PorcentajeTotalConsumido >= 100 ? "text-danger" : (Model.PorcentajeTotalConsumido >= 80 ? "text-warning" : "text-success"))">
+                @Model.PorcentajeTotalConsumido.ToString("F1")%
+            </h3>
+        </div>
+    </div>
+
+    @if (Model.PresupuestoTotal > 0)
+    {
+        <div class="progress mt-3" style="height: 12px; background-color: #1e293b;">
+            <div class="progress-bar @(Model.PorcentajeTotalConsumido >= 100 ? "bg-danger" : (Model.PorcentajeTotalConsumido >= 80 ? "bg-warning" : "bg-success"))" 
+                 role="progressbar" 
+                 style="width: @Math.Min(100, Model.PorcentajeTotalConsumido)%;" 
+                 aria-valuenow="@Model.PorcentajeTotalConsumido" aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Lista de Presupuestos por Categoría -->
+<div class="row g-4">
+    @if (Model.Items.Any())
+    {
+        @foreach (var item in Model.Items)
+        {
+            <div class="col-md-6 col-xl-4">
+                <div class="card p-4 h-100" style="background-color: #131b2e; border: 1px solid #2a374f;">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="stat-icon" style="background-color: @item.ColorHex; color: white;">
+                                <i class="bi @item.IconoCategoria fs-5"></i>
+                            </span>
+                            <div>
+                                <h6 class="fw-bold mb-0 text-white">@item.NombreCategoria</h6>
+                                <small class="text-muted">Límite mensual</small>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary border-0" type="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id">
+                                        <i class="bi bi-pencil me-2"></i> Editar
+                                    </a>
+                                </li>
+                                <li>
+                                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('¿Eliminar este presupuesto?');">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="dropdown-item text-danger">
+                                            <i class="bi bi-trash me-2"></i> Eliminar
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-end mb-2">
+                        <div>
+                            <small class="text-muted d-block">Gastado</small>
+                            <span class="fw-bold @(item.Excedido ? "text-danger" : "text-white")">S/ @item.MontoGastado.ToString("N2")</span>
+                        </div>
+                        <div class="text-end">
+                            <small class="text-muted d-block">Límite</small>
+                            <span class="fw-bold text-muted">S/ @item.MontoLimite.ToString("N2")</span>
+                        </div>
+                    </div>
+
+                    <div class="progress mb-2" style="height: 8px; background-color: #1e293b;">
+                        <div class="progress-bar @(item.Excedido ? "bg-danger" : (item.PorcentajeConsumido >= 80 ? "bg-warning" : "bg-primary"))" 
+                             style="width: @Math.Min(100, item.PorcentajeConsumido)%">
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between small">
+                        <span class="@(item.Excedido ? "text-danger fw-bold" : "text-muted")">
+                            @if (item.Excedido)
+                            {
+                                <span>¡Excedido por S/ @Math.Abs(item.MontoDisponible).ToString("N2")!</span>
+                            }
+                            else
+                            {
+                                <span>Disponible: S/ @item.MontoDisponible.ToString("N2")</span>
+                            }
+                        </span>
+                        <span class="fw-bold text-white">@item.PorcentajeConsumido.ToString("F1")%</span>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-12">
+            <div class="card p-5 text-center" style="background-color: #131b2e; border: 1px solid #2a374f;">
+                <i class="bi bi-wallet2 fs-1 text-muted mb-2"></i>
+                <h5 class="fw-bold text-white">No hay presupuestos fijados para este mes</h5>
+                <p class="text-muted small">Crea un presupuesto general o por categoría para mantener tus gastos controlados.</p>
+                <div class="mt-2">
+                    <a asp-action="Create" class="btn btn-primary px-4 shadow-sm">
+                        <i class="bi bi-plus-lg me-1"></i> Fijar Presupuesto Ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

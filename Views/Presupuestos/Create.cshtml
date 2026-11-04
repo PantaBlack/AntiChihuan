@@ -1,0 +1,81 @@
+@model NoMasChihuan.Models.ViewModels.PresupuestoFormViewModel
+@{
+    ViewData["Title"] = "Fijar Presupuesto";
+    Layout = "_Layout";
+}
+
+<div class="container-fluid py-2">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <div class="card p-4 shadow-sm" style="background-color: #131b2e; border: 1px solid #2a374f;">
+                <div class="d-flex align-items-center justify-content-between mb-4 border-bottom pb-3" style="border-color: #2a374f !important;">
+                    <div>
+                        <h4 class="fw-bold text-white mb-1">Definir Presupuesto</h4>
+                        <p class="text-muted small mb-0">Establece un techo máximo de gasto</p>
+                    </div>
+                    <a asp-action="Index" class="btn btn-outline-light btn-sm">
+                        <i class="bi bi-arrow-left"></i> Volver
+                    </a>
+                </div>
+
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small" style="background-color: #881337; border-color: #e11d48; color: #fecdd3;"></div>
+
+                    <!-- Mes y Año -->
+                    <div class="row g-3 mb-3">
+                        <div class="col-sm-6">
+                            <label asp-for="Mes" class="form-label small fw-semibold text-light">Mes</label>
+                            <select asp-for="Mes" class="form-select">
+                                @for (int m = 1; m <= 12; m++)
+                                {
+                                    var mName = new System.Globalization.CultureInfo("es-PE").DateTimeFormat.GetMonthName(m);
+                                    mName = char.ToUpper(mName[0]) + mName[1..];
+                                    <option value="@m">@mName</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label asp-for="Anio" class="form-label small fw-semibold text-light">Año</label>
+                            <select asp-for="Anio" class="form-select">
+                                @for (int a = DateTime.Today.Year - 1; a <= DateTime.Today.Year + 2; a++)
+                                {
+                                    <option value="@a">@a</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Categoría (opcional) -->
+                    <div class="mb-3">
+                        <label asp-for="CategoriaId" class="form-label small fw-semibold text-light">Categoría (Opcional)</label>
+                        <select asp-for="CategoriaId" asp-items="Model.CategoriasSelectList" class="form-select">
+                            <option value="">-- Presupuesto Global Mensual (Sin categoría) --</option>
+                        </select>
+                        <small class="text-muted d-block mt-1" style="font-size: 0.78rem;">
+                            Si lo dejas en "Presupuesto Global", aplicará al total de todos tus gastos combinados.
+                        </small>
+                    </div>
+
+                    <!-- Monto Límite -->
+                    <div class="mb-4">
+                        <label asp-for="MontoLimite" class="form-label small fw-semibold text-light">Monto Máximo Permitido (S/)</label>
+                        <div class="input-group">
+                            <span class="input-group-text fw-bold">S/</span>
+                            <input asp-for="MontoLimite" type="number" step="0.01" class="form-control form-control-lg fw-bold" placeholder="0.00" autofocus />
+                        </div>
+                        <span asp-validation-for="MontoLimite" class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm">
+                        <i class="bi bi-save me-1"></i> Guardar Presupuesto
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
