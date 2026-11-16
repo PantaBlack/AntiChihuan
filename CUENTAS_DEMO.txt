@@ -1,0 +1,80 @@
+================================================================================
+                    🛡️ ANTICHIHUAN - CUENTAS DE PRUEBA (DEMO)
+================================================================================
+
+Contraseña común para todas las cuentas: Password123!
+
+--------------------------------------------------------------------------------
+👥 1. CUENTAS DEL EQUIPO DE DESARROLLO (5 INTEGRANTES)
+--------------------------------------------------------------------------------
+
+1. Gianino Hector Naranjo Servidio
+   • Correo:      gianino@antichihuan.pe
+   • Contraseña:  Password123!
+   • Rol:         Base de Datos y Gestión Financiera
+   • Perfil:      Finanzas Saludables y Ahorro Sólido
+   • Estado:      🟢 Superávit mensual (+S/ 2,550), gastos al 49% de ingresos.
+
+2. Alexis Mijael Huerta Usqueano
+   • Correo:      alexis@antichihuan.pe
+   • Contraseña:  Password123!
+   • Rol:         Inteligencia Artificial y Análisis Financiero
+   • Perfil:      Alto Patrimonio / Gran Capital (Mucho Dinero)
+   • Estado:      🟢 Gran liquidez (+S/ 10,700), ingresos de S/ 16,500/mes.
+
+3. Anderson Fabrizzio Larios Tito
+   • Correo:      anderson@antichihuan.pe
+   • Contraseña:  Password123!
+   • Rol:         Backend Security y Gestión de Usuarios
+   • Perfil:      Crisis de Deudas / Modo Chihuán
+   • Estado:      🔴 Déficit crítico (-S/ 1,520). 65% de ingresos van a cuotas bancarias.
+
+4. Samir Rojas Diaz
+   • Correo:      samir@antichihuan.pe
+   • Contraseña:  Password123!
+   • Rol:         Estadísticas y Despliegue Cloud
+   • Perfil:      Víctima de Gastos Hormiga Masivos
+   • Estado:      🟡 41.5% del sueldo fugado en Starbucks, deliveries y antojos (S/ 1,320).
+
+5. Yimmy Diaz Jange
+   • Correo:      yimmy@antichihuan.pe
+   • Contraseña:  Password123!
+   • Rol:         Frontend Angular y Diseño UI/UX
+   • Perfil:      Control Presupuestal Óptimo
+   • Estado:      🟢 Presupuesto controlado (84% consumido), margen de ahorro del 45.8%.
+
+--------------------------------------------------------------------------------
+🔥 2. PERFILES FINANCIEROS EXTREMOS (5 CASOS DE USO)
+--------------------------------------------------------------------------------
+
+6. Carlos Slim Rodríguez
+   • Correo:      carlos.slim@antichihuan.pe
+   • Contraseña:  Password123!
+   • Perfil:      Empresario Millonario (Mucho Dinero)
+   • Estado:      🟢 Ingresos corporativos de S/ 38,000/mes, superávit de S/ 28,800.
+
+7. Valeria Mendoza Paz
+   • Correo:      valeria.deudas@antichihuan.pe
+   • Contraseña:  Password123!
+   • Perfil:      Quiebra Inminente (Muchas Deudas)
+   • Estado:      🔴 Ingreso de S/ 1,900 vs S/ 4,650 en deudas (Déficit de -S/ 2,750).
+
+8. Mateo Quispe Flores
+   • Correo:      mateo.delivery@antichihuan.pe
+   • Contraseña:  Password123!
+   • Perfil:      Adicto al Delivery y Comida Rápida
+   • Estado:      🟡 51.8% de su presupuesto gastado en compras impulsivas y apps de comida.
+
+9. Lucía Fernández Castro
+   • Correo:      lucia.frugal@antichihuan.pe
+   • Contraseña:  Password123!
+   • Perfil:      Ahorradora Frugal / Minimalista Financiera
+   • Estado:      🟢 Ahorra el 64.4% de su sueldo neto cada mes.
+
+10. Renzo Balbuena Silva
+    • Correo:      renzo.chihuan@antichihuan.pe
+    • Contraseña:  Password123!
+    • Perfil:      Súper Chihuán / Descontrol Presupuestario Total
+    • Estado:      🔴 Presupuesto mensual reventado en 202% por farras, apuestas y compras.
+
+================================================================================
