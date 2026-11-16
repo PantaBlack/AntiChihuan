@@ -81,7 +81,40 @@ import { AuthService } from './core/services/auth.service';
         </div>
       </div>
     } @else {
-      <router-outlet></router-outlet>
+      <!-- Public Layout (Landing, Login, Register) -->
+      <div class="d-flex flex-column" style="min-height: 100vh;">
+        <!-- Public Navigation Bar -->
+        <header>
+          <nav class="navbar navbar-expand-lg py-3 sticky-top" style="background-color: #090d16; border-bottom: 1px solid #1e293b;">
+            <div class="container">
+              <a class="navbar-brand fw-bold d-flex align-items-center gap-2" routerLink="/">
+                <span class="badge p-2 rounded-3" style="background: linear-gradient(135deg, #4f46e5, #06b6d4);">
+                  <i class="bi bi-shield-check fs-5 text-white"></i>
+                </span>
+                <span class="fs-4 text-white">Anti<span class="text-warning">Chihuan</span></span>
+              </a>
+              <div class="d-flex align-items-center gap-3 ms-auto">
+                <a routerLink="/" class="nav-link text-light px-2 fw-medium">Inicio</a>
+                <a routerLink="/login" class="btn btn-outline-light btn-sm px-4 rounded-pill">Iniciar Sesión</a>
+                <a routerLink="/register" class="btn btn-warning btn-sm px-4 rounded-pill fw-bold text-dark shadow-sm">Registrarse</a>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <!-- Public Content Area -->
+        <main class="flex-grow-1">
+          <router-outlet></router-outlet>
+        </main>
+
+        <!-- Public Footer -->
+        <footer class="footer py-4 border-top text-center small" style="background-color: #090d16; border-color: #1e293b !important; color: #64748b;">
+          <div class="container">
+            <p class="mb-1 text-light fw-bold">AntiChihuan &copy; 2026 - Universidad / Proyecto Integrador</p>
+            <p class="text-muted mb-0">Desarrollado con Angular 18, Spring Boot 3 y Google Gemini AI.</p>
+          </div>
+        </footer>
+      </div>
     }
   `
 })
