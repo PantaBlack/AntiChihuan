@@ -58,4 +58,15 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new AuthResponse(token, nuevo.getId(), nuevo.getNombreCompleto(), nuevo.getEmail()));
     }
+
+    @GetMapping("/usuarios")
+    public ResponseEntity<?> listarUsuarios() {
+        var usuarios = usuarioRepository.findAll().stream().map(u -> Map.of(
+                "id", u.getId(),
+                "nombreCompleto", u.getNombreCompleto(),
+                "email", u.getEmail(),
+                "fechaRegistro", u.getFechaRegistro() != null ? u.getFechaRegistro().toString() : ""
+        )).toList();
+        return ResponseEntity.ok(usuarios);
+    }
 }
