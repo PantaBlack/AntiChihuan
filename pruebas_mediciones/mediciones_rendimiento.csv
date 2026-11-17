@@ -1,0 +1,91 @@
+endpoint_id,endpoint_nombre,metodo,url,iteracion,latencia_ms,status_code,tamano_bytes
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,1,383.11,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,2,380.68,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,3,308.2,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,4,515.96,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,5,294.53,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,6,405.76,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,7,535.79,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,8,483.62,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,9,1276.29,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,10,485.93,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,11,708.17,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,12,321.55,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,13,402.7,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,14,338.31,200,9224
+EP-01,Landing Page (HTML SPA),GET,https://antichihuan.onrender.com/,15,297.86,200,9224
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,1,304.08,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,2,355.41,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,3,513.91,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,4,519.95,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,5,261.26,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,6,533.2,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,7,634.15,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,8,432.99,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,9,280.75,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,10,346.64,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,11,475.06,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,12,257.87,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,13,294.83,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,14,473.63,200,1435
+EP-02,Listado Usuarios (REST API),GET,https://antichihuan.onrender.com/api/auth/usuarios,15,232.42,200,1435
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,1,748.83,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,2,751.11,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,3,886.08,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,4,721.47,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,5,833.25,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,6,703.88,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,7,719.26,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,8,717.73,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,9,719.88,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,10,830.22,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,11,806.49,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,12,724.27,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,13,684.61,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,14,842.69,200,380
+EP-03,Autenticación Login (JWT BCrypt),POST,https://antichihuan.onrender.com/api/auth/login,15,735.33,200,380
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,1,841.83,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,2,906.81,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,3,1038.44,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,4,782.78,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,5,535.55,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,6,532.27,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,7,632.07,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,8,433.88,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,9,433.24,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,10,635.98,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,11,739.63,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,12,532.9,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,13,416.85,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,14,548.96,200,2496
+EP-04,Dashboard Métricas (JWT Guard),GET,https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026,15,515.05,200,2496
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,1,670.47,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,2,410.4,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,3,237.27,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,4,259.56,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,5,365.92,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,6,354.2,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,7,430.48,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,8,326.8,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,9,337.46,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,10,425.23,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,11,541.45,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,12,328.72,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,13,322.68,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,14,429.57,200,1316
+EP-05,Transacciones Usuario (JWT Guard),GET,https://antichihuan.onrender.com/api/transacciones,15,428.98,200,1316
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,1,377.54,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,2,248.66,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,3,465.62,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,4,290.85,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,5,267.91,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,6,246.69,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,7,260.7,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,8,234.53,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,9,365.84,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,10,280.29,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,11,476.84,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,12,536.23,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,13,307.5,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,14,359.28,200,1893
+EP-06,Categorías del Sistema (JWT Guard),GET,https://antichihuan.onrender.com/api/categorias,15,279.06,200,1893
