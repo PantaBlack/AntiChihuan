@@ -22,7 +22,6 @@ COPY --from=backend-build /backend/target/antichihuan-api-1.0.0.jar app.jar
 
 ENV SERVER_PORT=8080
 ENV SPRING_PROFILES_ACTIVE=prod
-ENV SPRING_H2_CONSOLE_SETTINGS_WEB_ALLOW_OTHERS=true
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "app.jar"]

@@ -46,14 +46,7 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
-        <!-- Base de datos H2 (Modo SQLServer en memoria/archivo persistente para Cloud) -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <!-- Driver PostgreSQL para Cloud Database en Render / Supabase -->
+        <!-- Driver PostgreSQL para Cloud Database en Render / Producción -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>

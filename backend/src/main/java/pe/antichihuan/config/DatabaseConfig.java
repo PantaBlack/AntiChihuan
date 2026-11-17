@@ -23,7 +23,7 @@ public class DatabaseConfig {
     @Value("${spring.datasource.url:#{null}}")
     private String springDatasourceUrl;
 
-    @Value("${spring.datasource.username:sa}")
+    @Value("${spring.datasource.username:postgres}")
     private String defaultUsername;
 
     @Value("${spring.datasource.password:}")
@@ -38,9 +38,8 @@ public class DatabaseConfig {
         HikariConfig config = new HikariConfig();
 
         if (rawUrl != null && (rawUrl.startsWith("postgres://") || rawUrl.startsWith("postgresql://"))) {
-            log.info("Detectada URL de PostgreSQL de Render/Cloud. Configurando HikariCP...");
+            log.info("Configurando conexión a PostgreSQL en Render Cloud...");
             try {
-                // Si la URL usa "postgres://", convertir a URI estándar para parsear
                 String uriString = rawUrl;
                 if (uriString.startsWith("postgres://")) {
                     uriString = "postgresql://" + uriString.substring("postgres://".length());
@@ -62,28 +61,24 @@ public class DatabaseConfig {
                         config.setPassword(userInfo[1]);
                     }
                 }
-                log.info("PostgreSQL configurado exitosamente hacia {}:{}", host, port);
+                log.info("PostgreSQL conectado con éxito hacia {}:{}", host, port);
             } catch (Exception e) {
-                log.error("Error al parsear DATABASE_URL de PostgreSQL: {}. Intentando como JDBC directa.", e.getMessage());
+                log.error("Error parseando DATABASE_URL de PostgreSQL: {}. Intentando como JDBC directa.", e.getMessage());
                 config.setJdbcUrl("jdbc:" + rawUrl);
                 config.setDriverClassName("org.postgresql.Driver");
             }
-        } else if (rawUrl != null && rawUrl.startsWith("jdbc:")) {
-            log.info("Usando JDBC URL configurada: {}", rawUrl);
+        } else if (rawUrl != null && rawUrl.startsWith("jdbc:postgresql:")) {
+            log.info("Usando JDBC PostgreSQL directa: {}", rawUrl);
             config.setJdbcUrl(rawUrl);
             config.setUsername(defaultUsername);
             config.setPassword(defaultPassword);
-            if (rawUrl.contains("postgresql")) {
-                config.setDriverClassName("org.postgresql.Driver");
-            } else if (rawUrl.contains("h2")) {
-                config.setDriverClassName("org.h2.Driver");
-            }
+            config.setDriverClassName("org.postgresql.Driver");
         } else {
-            log.info("No se detectó DATABASE_URL externa. Usando base de datos H2 embebida por defecto.");
-            config.setJdbcUrl("jdbc:h2:file:./data/antichihuandb;MODE=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE");
-            config.setUsername("sa");
-            config.setPassword("");
-            config.setDriverClassName("org.h2.Driver");
+            log.warn("No se detectó DATABASE_URL. Usando configuración PostgreSQL local.");
+            config.setJdbcUrl("jdbc:postgresql://localhost:5432/antichihuandb");
+            config.setUsername(defaultUsername);
+            config.setPassword(defaultPassword);
+            config.setDriverClassName("org.postgresql.Driver");
         }
 
         config.setMaximumPoolSize(10);
