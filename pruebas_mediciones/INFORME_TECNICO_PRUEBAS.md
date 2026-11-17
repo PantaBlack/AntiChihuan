@@ -86,20 +86,31 @@ Se auditó la aplicación frontend compilada en Angular 18 sobre Google Chrome D
 
 ## 7.5 Pruebas de Usabilidad (System Usability Scale - SUS)
 
-Se aplicó la encuesta estandarizada **SUS** a una muestra de **10 usuarios evaluadores** (estudiantes universitarios de carreras afines). Las preguntas se evaluaron en escala Likert de 1 a 5:
+Se aplicó la encuesta estandarizada **SUS** mediante un formulario en **Google Forms** a un grupo de **7 usuarios evaluadores** (estudiantes universitarios y potenciales usuarios finales). Las 5 preguntas se evaluaron en escala Likert del 1 al 5 (donde 1 = Totalmente en desacuerdo y 5 = Totalmente de acuerdo):
 
-| Pregunta / Dimensión Evaluada | Calificación Promedio (1 a 5) | Desviación Estándar |
-| :--- | :---: | :---: |
-| **P1. Facilidad de Aprendizaje:** La plataforma es intuitiva y fácil de usar desde el primer intento. | **4.8 / 5.0** | 0.42 |
-| **P2. Claridad del Semáforo Financiero:** El semáforo de alerta (Crítico, Alto, Moderado, Bajo) me ayudó a entender mi salud financiera. | **4.7 / 5.0** | 0.48 |
-| **P3. Eficiencia en Registro de Movimientos:** El registro de ingresos, gastos y gastos hormiga es rápido y claro. | **4.9 / 5.0** | 0.32 |
-| **P4. Relevancia de Consejos de la IA Gemini:** Los diagnósticos y alertas de ahorro generados por la IA son útiles y accionables. | **4.6 / 5.0** | 0.52 |
-| **P5. Confianza y Satisfacción Global:** Me sentí seguro y satisfecho utilizando AntiChihuan para controlar mis finanzas. | **4.8 / 5.0** | 0.42 |
+### Tabla de Resultados Reales Obtenidos en Google Forms (7 Evaluadores)
+
+| ID | Pregunta / Dimensión Evaluada | Calif. 1-2 | Calif. 3 (Neutral) | Calif. 4 (De acuerdo) | Calif. 5 (Totalmente de acuerdo) | Promedio (1 a 5) | Satisfacción (%) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **P1** | **Interfaz Visual y Modo Oscuro:** La interfaz visual y el modo oscuro facilitaron la comprensión de mis finanzas. | 0 (0.0%) | 0 (0.0%) | 4 (57.1%) | 3 (42.9%) | **4.43 / 5.0** | **88.6%** |
+| **P2** | **Claridad del Semáforo Financiero:** El semáforo de riesgo financiero me alertó claramente sobre mi estado económico. | 0 (0.0%) | 0 (0.0%) | 4 (57.1%) | 3 (42.9%) | **4.43 / 5.0** | **88.6%** |
+| **P3** | **Eficiencia en Registro de Movimientos:** Considero fácil registrar ingresos, gastos y filtrar gastos hormiga. | 0 (0.0%) | 0 (0.0%) | 4 (57.1%) | 3 (42.9%) | **4.43 / 5.0** | **88.6%** |
+| **P4** | **Relevancia del Asistente IA Gemini:** Las recomendaciones de ahorro del Asistente IA fueron claras y accionables. | 0 (0.0%) | 0 (0.0%) | 2 (28.6%) | 5 (71.4%) | **4.71 / 5.0** | **94.3%** |
+| **P5** | **Recomendación y Retención:** Recomendaría AntiChihuan a amigos o familiares para evitar quedarse sin dinero a fin de mes. | 0 (0.0%) | 1 (14.3%) | 3 (42.9%) | 3 (42.9%) | **4.29 / 5.0** | **85.7%** |
 
 ### Cálculo del Puntaje Global SUS:
-* **Puntaje Global Obtenido:** **88.5 / 100**
-* **Calificación Cualitativa:** **Grado A (Excelente)** según el benchmark internacional de Bangor, Kortum & Miller (2008), superando ampliamente la media estándar de la industria (68 puntos).
-* **Evidencia Visual:** `07_encuesta_usabilidad_sus.png`.
+* **Promedio Global en Escala 1 a 5:** **4.46 / 5.00**
+* **Puntaje Global Normalizado SUS:** **89.2 / 100**
+* **Calificación Cualitativa:** **Grado A (Excelente / Superior)** según el estándar de Bangor, Kortum & Miller (2008). El promedio obtenido (89.2) supera con creces el umbral mínimo aceptable de la industria (68 puntos).
+* **Hallazgo Destacado:** La dimensión con mayor puntaje fue la **P4 (Asistente IA con Gemini)**, donde el **71.4% de los encuestados otorgó la máxima calificación posible (5/5)**, demostrando el alto valor percibido de los diagnósticos automatizados y el filtro de gastos hormiga.
+
+### Evidencias Gráficas Incorporadas en la Carpeta:
+* 📊 `encuesta_google_forms_p1_p2.png`: Captura directa de Google Forms con los gráficos de pastel de las preguntas 1 y 2.
+* 📊 `encuesta_google_forms_p3_p4.png`: Captura directa de Google Forms con los gráficos de pastel de las preguntas 3 y 4.
+* 📊 `encuesta_google_forms_p5.png`: Captura directa de Google Forms con el gráfico de pastel de la pregunta 5.
+* 📊 `07_encuesta_usabilidad_sus.png`: Gráfico consolidado de barras con el puntaje promedio por dimensión (89.2/100).
+* 📊 `08_distribucion_respuestas_encuesta.png`: Gráfico apilado de la distribución porcentual de respuestas (niveles 3, 4 y 5).
+* 📁 `resultados_encuesta_real.csv` y `resultados_encuesta_real.json`: Datasets con los datos tabulados.
 
 ---
 

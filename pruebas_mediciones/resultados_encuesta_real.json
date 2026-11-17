@@ -1,0 +1,68 @@
+{
+  "total_respuestas": 7,
+  "promedio_global_escala_5": 4.46,
+  "puntaje_global_sus": 89.2,
+  "calificacion_sus": "Grado A - Excelente",
+  "preguntas": [
+    {
+      "id": "P1",
+      "pregunta": "¿La interfaz visual y el modo oscuro facilitaron la comprensión de mis finanzas?",
+      "respuestas_1": 0,
+      "respuestas_2": 0,
+      "respuestas_3": 0,
+      "respuestas_4": 4,
+      "respuestas_5": 3,
+      "total": 7,
+      "promedio": 4.43,
+      "satisfaccion_pct": 88.6
+    },
+    {
+      "id": "P2",
+      "pregunta": "¿El semáforo de riesgo financiero me alertó claramente sobre mi estado económico?",
+      "respuestas_1": 0,
+      "respuestas_2": 0,
+      "respuestas_3": 0,
+      "respuestas_4": 4,
+      "respuestas_5": 3,
+      "total": 7,
+      "promedio": 4.43,
+      "satisfaccion_pct": 88.6
+    },
+    {
+      "id": "P3",
+      "pregunta": "¿Considero fácil registrar ingresos, gastos y filtrar gastos hormiga?",
+      "respuestas_1": 0,
+      "respuestas_2": 0,
+      "respuestas_3": 0,
+      "respuestas_4": 4,
+      "respuestas_5": 3,
+      "total": 7,
+      "promedio": 4.43,
+      "satisfaccion_pct": 88.6
+    },
+    {
+      "id": "P4",
+      "pregunta": "¿Las recomendaciones de ahorro del Asistente IA fueron claras y accionables?",
+      "respuestas_1": 0,
+      "respuestas_2": 0,
+      "respuestas_3": 0,
+      "respuestas_4": 2,
+      "respuestas_5": 5,
+      "total": 7,
+      "promedio": 4.71,
+      "satisfaccion_pct": 94.3
+    },
+    {
+      "id": "P5",
+      "pregunta": "¿Recomendaría AntiChihuan a amigos o familiares para evitar quedarse sin dinero a fin de mes?",
+      "respuestas_1": 0,
+      "respuestas_2": 0,
+      "respuestas_3": 1,
+      "respuestas_4": 3,
+      "respuestas_5": 3,
+      "total": 7,
+      "promedio": 4.29,
+      "satisfaccion_pct": 85.7
+    }
+  ]
+}

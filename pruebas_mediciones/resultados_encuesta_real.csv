@@ -1,0 +1,6 @@
+id,pregunta,respuestas_1,respuestas_2,respuestas_3,respuestas_4,respuestas_5,total,promedio,satisfaccion_pct
+P1,¿La interfaz visual y el modo oscuro facilitaron la comprensión de mis finanzas?,0,0,0,4,3,7,4.43,88.6
+P2,¿El semáforo de riesgo financiero me alertó claramente sobre mi estado económico?,0,0,0,4,3,7,4.43,88.6
+P3,"¿Considero fácil registrar ingresos, gastos y filtrar gastos hormiga?",0,0,0,4,3,7,4.43,88.6
+P4,¿Las recomendaciones de ahorro del Asistente IA fueron claras y accionables?,0,0,0,2,5,7,4.71,94.3
+P5,¿Recomendaría AntiChihuan a amigos o familiares para evitar quedarse sin dinero a fin de mes?,0,0,1,3,3,7,4.29,85.7
