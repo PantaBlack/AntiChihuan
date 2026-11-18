@@ -6,12 +6,12 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "muestras": 15,
-      "min_ms": 294.53,
-      "max_ms": 1276.29,
-      "avg_ms": 475.9,
-      "median_ms": 402.7,
-      "p95_ms": 1276.29,
-      "std_dev": 248.33,
+      "min_ms": 204.04,
+      "max_ms": 567.9,
+      "avg_ms": 257.01,
+      "median_ms": 229.59,
+      "p95_ms": 567.9,
+      "std_dev": 89.85,
       "tasa_exito_pct": 100.0,
       "tamano_promedio_bytes": 9224,
       "sample_body": "<!DOCTYPE html>\n<html lang=\"es\" data-bs-theme=\"dark\" data-critters-container>\n<head><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n  <meta charset=\"utf-8\">\n  <title>AntiChihuan - Control Inteligente de Finanzas</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/svg+xml\" href=\"favicon.svg\">\n  <link rel=\"shortcut icon\" href=\"favicon.svg\">\n  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css\">\n  <style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko70yyygA.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko50yyygA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko40yyygA.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yw.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko70yyygA.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko50yyygA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko40yyygA.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yw.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko70yyygA.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko50yyygA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko40yyygA.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yw.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko70yyygA.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko50yyygA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko40yyygA.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yw.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:800;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko70yyygA.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:800;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko50yyygA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:800;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko40yyygA.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:800;font-display:swap;src:url(https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yw.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>\n<style>:root{--bs-font-sans-serif:\"Plus Jakarta Sans\", system-ui, -apple-system, sans-serif;--bg-body:#0b0f19;--bg-surface:#131b2e;--bg-surface-elevated:#1e293b;--bg-surface-hover:#27354f;--border-color:#2a374f;--border-color-light:#3b4b68;--text-primary:#f8fafc;--text-secondary:#94a3b8;--text-muted:#64748b;--accent-primary:#6366f1;--accent-success:#10b981;--accent-danger:#f43f5e;--accent-warning:#f59e0b;--accent-info:#06b6d4}body{font-family:var(--bs-font-sans-serif);background-color:var(--bg-body);color:var(--text-primary);min-height:100vh}</style><link rel=\"stylesheet\" href=\"styles.css\" media=\"print\" onload=\"this.media='all'\"><noscript><link rel=\"stylesheet\" href=\"styles.css\"></noscript></head>\n<body style=\"background-color: #0b0f19; color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif;\">\n  <app-root></app-root>\n  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\"></script>\n<script src=\"polyfills.js\" type=\"module\"></script><script src=\"main.js\" type=\"module\"></script></body>\n</html>\n"
@@ -22,15 +22,15 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/auth/usuarios",
       "muestras": 15,
-      "min_ms": 232.42,
-      "max_ms": 634.15,
-      "avg_ms": 394.41,
-      "median_ms": 355.41,
-      "p95_ms": 634.15,
-      "std_dev": 124.92,
+      "min_ms": 195.42,
+      "max_ms": 286.26,
+      "avg_ms": 227.75,
+      "median_ms": 229.91,
+      "p95_ms": 286.26,
+      "std_dev": 19.73,
       "tasa_exito_pct": 100.0,
-      "tamano_promedio_bytes": 1435,
-      "sample_body": "[{\"email\":\"gianino@antichihuan.pe\",\"fechaRegistro\":\"2026-11-17T21:16:46.533314\",\"id\":1,\"nombreCompleto\":\"Gianino Hector Naranjo Servidio\"},{\"email\":\"alexis@antichihuan.pe\",\"fechaRegistro\":\"2026-11-17T21:16:47.034980\",\"id\":2,\"nombreCompleto\":\"Alexis Mijael Huerta Usqueano\"},{\"email\":\"anderson@antichihuan.pe\",\"fechaRegistro\":\"2026-11-17T21:16:47.632495\",\"id\":3,\"nombreCompleto\":\"Anderson Fabrizzio Larios Tito\"},{\"email\":\"samir@antichihuan.pe\",\"fechaRegistro\":\"2026-11-17T21:16:48.135275\",\"id\":4,\"nombreCompleto\":\"Samir Rojas Diaz\"},{\"email\":\"yimmy@antichihuan.pe\",\"fechaRegistro\":\"2026-11-17T21:16:48.638701\",\"id\":5,\"nombreCompleto\":\"Yimmy Diaz Jange\"},{\"email\":\"carlos.slim@antichihuan.pe\",\"fechaRegistro\":\"2026-11-17T21:16:49.234955\",\"id\":6,\"nombreCompleto\":\"Carlos Slim Rodríguez\"},{\"email\":\"valeria.deudas@antichihuan.pe\",\"fechaRegistro\":\"2026-11-17T21:16:49.635663\",\"id\":7,\"nombreCompleto\":\"Valeria Mendoza Paz\"},{\"email\":\"mateo.delivery@antichihuan.pe\",\"fechaRegistro\":\"2026-11-17T21:16:49.937748\",\"id\":8,\"nombreCompleto\":\"Mateo Quispe Flores\"},{\"email\":\"lucia.frugal@antichihuan.pe\",\"fechaRegistro\":\"2026-11-17T21:16:50.337310\",\"id\":9,\"nombreCompleto\":\"Lucía Fernández Castro\"},{\"email\":\"renzo.chihuan@antichihuan.pe\",\"fechaRegistro\":\"2026-11-17T21:16:50.640943\",\"id\":10,\"nombreCompleto\":\"Renzo Balbuena Silva\"},{\"email\":\"carlosmuñante64@gmail.com\",\"fechaRegistro\":\"2026-11-17T21:18:54.637097\",\"id\":11,\"nombreCompleto\":\"\"}]"
+      "tamano_promedio_bytes": 1536,
+      "sample_body": "[{\"fechaRegistro\":\"2026-11-17T21:16:46.533314\",\"email\":\"gianino@antichihuan.pe\",\"nombreCompleto\":\"Gianino Hector Naranjo Servidio\",\"id\":1},{\"fechaRegistro\":\"2026-11-17T21:16:47.034980\",\"email\":\"alexis@antichihuan.pe\",\"nombreCompleto\":\"Alexis Mijael Huerta Usqueano\",\"id\":2},{\"fechaRegistro\":\"2026-11-17T21:16:47.632495\",\"email\":\"anderson@antichihuan.pe\",\"nombreCompleto\":\"Anderson Fabrizzio Larios Tito\",\"id\":3},{\"fechaRegistro\":\"2026-11-17T21:16:48.135275\",\"email\":\"samir@antichihuan.pe\",\"nombreCompleto\":\"Samir Rojas Diaz\",\"id\":4},{\"fechaRegistro\":\"2026-11-17T21:16:48.638701\",\"email\":\"yimmy@antichihuan.pe\",\"nombreCompleto\":\"Yimmy Diaz Jange\",\"id\":5},{\"fechaRegistro\":\"2026-11-17T21:16:49.234955\",\"email\":\"carlos.slim@antichihuan.pe\",\"nombreCompleto\":\"Carlos Slim Rodríguez\",\"id\":6},{\"fechaRegistro\":\"2026-11-17T21:16:49.635663\",\"email\":\"valeria.deudas@antichihuan.pe\",\"nombreCompleto\":\"Valeria Mendoza Paz\",\"id\":7},{\"fechaRegistro\":\"2026-11-17T21:16:49.937748\",\"email\":\"mateo.delivery@antichihuan.pe\",\"nombreCompleto\":\"Mateo Quispe Flores\",\"id\":8},{\"fechaRegistro\":\"2026-11-17T21:16:50.337310\",\"email\":\"lucia.frugal@antichihuan.pe\",\"nombreCompleto\":\"Lucía Fernández Castro\",\"id\":9},{\"fechaRegistro\":\"2026-11-17T21:16:50.640943\",\"email\":\"renzo.chihuan@antichihuan.pe\",\"nombreCompleto\":\"Renzo Balbuena Silva\",\"id\":10},{\"fechaRegistro\":\"2026-11-17T21:18:54.637097\",\"email\":\"carlosmuñante64@gmail.com\",\"nombreCompleto\":\"\",\"id\":11},{\"fechaRegistro\":\"2026-11-17T23:06:51.911482\",\"email\":\"Mijael123\",\"nombreCompleto\":\"Mijael\",\"id\":12}]"
     },
     {
       "id": "EP-03",
@@ -38,15 +38,15 @@
       "metodo": "POST",
       "url": "https://antichihuan.onrender.com/api/auth/login",
       "muestras": 15,
-      "min_ms": 684.61,
-      "max_ms": 886.08,
-      "avg_ms": 761.67,
-      "median_ms": 735.33,
-      "p95_ms": 886.08,
-      "std_dev": 61.3,
+      "min_ms": 616.95,
+      "max_ms": 1118.2,
+      "avg_ms": 732.12,
+      "median_ms": 711.46,
+      "p95_ms": 1118.2,
+      "std_dev": 157.36,
       "tasa_exito_pct": 100.0,
       "tamano_promedio_bytes": 380,
-      "sample_body": "{\"token\":\"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJnaWFuaW5vQGFudGljaGlodWFuLnBlIiwibm9tYnJlIjoiR2lhbmlubyBIZWN0b3IgTmFyYW5qbyBTZXJ2aWRpbyIsImlhdCI6MTc5NDk1MTA4NCwiZXhwIjoxNzk1NTU1ODg0fQ.duHXFXhouKK1CR0zEDoxUpe-OUd8h2lkvMokeHdirxdARCztVhEX2f_WWKg48pGFGbHscwNRsXLz-C86a9FFoQ\",\"usuarioId\":1,\"nombreCompleto\":\"Gianino Hector Naranjo Servidio\",\"email\":\"gianino@antichihuan.pe\"}"
+      "sample_body": "{\"token\":\"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJnaWFuaW5vQGFudGljaGlodWFuLnBlIiwibm9tYnJlIjoiR2lhbmlubyBIZWN0b3IgTmFyYW5qbyBTZXJ2aWRpbyIsImlhdCI6MTc5NDk3MjYzMSwiZXhwIjoxNzk1NTc3NDMxfQ.mdEzJ3Hu-regh06SBeXS9OiIcjqB4J2DHRsaxy4XgsIWorKDlaopj3a-m_iy0ZNhW2ng4HceBTAn8KpHxNxcBQ\",\"usuarioId\":1,\"nombreCompleto\":\"Gianino Hector Naranjo Servidio\",\"email\":\"gianino@antichihuan.pe\"}"
     },
     {
       "id": "EP-04",
@@ -54,12 +54,12 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
       "muestras": 15,
-      "min_ms": 416.85,
-      "max_ms": 1038.44,
-      "avg_ms": 635.08,
-      "median_ms": 548.96,
-      "p95_ms": 1038.44,
-      "std_dev": 187.77,
+      "min_ms": 423.65,
+      "max_ms": 2823.77,
+      "avg_ms": 786.1,
+      "median_ms": 620.76,
+      "p95_ms": 2823.77,
+      "std_dev": 591.82,
       "tasa_exito_pct": 100.0,
       "tamano_promedio_bytes": 2496,
       "sample_body": "{\"usuarioNombre\":\"Gianino Hector Naranjo Servidio\",\"mesActual\":11,\"anioActual\":2026,\"nombreMesActual\":\"Noviembre\",\"totalIngresosMes\":5000.00,\"totalGastosMes\":2450.00,\"balanceMes\":2550.00,\"presupuestoMes\":3000.00,\"porcentajePresupuestoConsumido\":81.67,\"totalGastosHormigaMes\":350.00,\"porcentajeGastosHormiga\":14.3,\"estadoSemaforo\":\"EXCELENTE\",\"mensajeSemaforo\":\"Tus finanzas van por excelente camino. ¡Sigue así!\",\"ultimasTransacciones\":[{\"id\":4,\"descripcion\":\"Deliveries, Cafés y Antojos (Hormiga)\",\"monto\":350.00,\"fecha\":\"2026-11-07\",\"tipo\":\"GASTO\",\"esGastoHormiga\":true,\"notas\":null,\"categoria\":{\"id\":13,\"nombre\":\"Gastos Hormiga (Snacks, Cafés, Antojos)\",\"tipo\":\"GASTO\",\"icono\":\"bi-cup-hot\",\"colorHex\":\"#b02a37\",\"esPredeterminada\":true},\"fechaCreacion\":\"2026-11-17T21:16:46.837235\"},{\"id\":3,\"descripcion\":\"Supermercado y Alimentación\",\"monto\":900.00,\"fecha\":\"2026-11-05\",\"tipo\":\"GASTO\",\"esGastoHormiga\":false,\"notas\":null,\"categoria\":{\"id\":6,\"nombre\":\"Alimentación y Supermercado\",\"tipo\":\"GASTO\",\"icono\":\"bi-cart4\",\"colorHex\":\"#fd7e14\",\"esPredeterminada\":true},\"fechaCreacion\":\"2026-11-17T21:16:46.737746\"},{\"id\":2,\"descripcion\":\"Pago de Alquiler y Cuotas\",\"monto\":1200.00,\"fecha\":\"2026-11-03\",\"tipo\":\"GASTO\",\"esGastoHormiga\":false,\"notas\":null,\"categoria\":{\"id\":7,\"nombre\":\"Vivienda y Alquiler\",\"tipo\":\"GASTO\",\"icono\":\"bi-house-door\",\"colorHex\":\"#dc3545\",\"esPredeterminada\":true},\"fechaCreacion\":\"2026-11-17T21:16:46.732472\"},{\"id\":1,\"descripcion\":\"Sueldo Mensual Principal\",\"monto\":5000.00,\"fecha\":\"2026-11-01\",\"tipo\":\"INGRESO\",\"esGastoHormiga\":false,\"notas\":null,\"categoria\":{\"id\":1,\"nombre\":\"Salario / Sueldo\",\"tipo\":\"INGRESO\",\"icono\":\"bi-cash-coin\",\"colorHex\":\"#198754\",\"esPredeterminada\":true},\"fechaCreacion\":\"2026-11-17T21:16:46.541329\"}],\"gastosPorCategoria\":[{\"categoria\":\"Vivienda y Alquiler\",\"monto\":1200.00,\"colorHex\":\"#dc3545\",\"icono\":\"bi-house-door\",\"porcentaje\":49.0},{\"categoria\":\"Alimentación y Supermercado\",\"monto\":900.00,\"colorHex\":\"#fd7e14\",\"icono\":\"bi-cart4\",\"porcentaje\":36.7},{\"categoria\":\"Gastos Hormiga (Snacks, Cafés, Antojos)\",\"monto\":350.00,\"colorHex\":\"#b02a37\",\"icono\":\"bi-cup-hot\",\"porcentaje\":14.3}],\"historicoUltimosMeses\":[{\"mesNombre\":\"jun. 2026\",\"ingresos\":0,\"gastos\":0},{\"mesNombre\":\"jul. 2026\",\"ingresos\":0,\"gastos\":0},{\"mesNombre\":\"ago. 2026\",\"ingresos\":0,\"gastos\":0},{\"mesNombre\":\"set. 2026\",\"ingresos\":0,\"gastos\":0},{\"mesNombre\":\"oct. 2026\",\"ingresos\":0,\"gastos\":0},{\"mesNombre\":\"nov. 2026\",\"ingresos\":5000.00,\"gastos\":2450.00}],\"alertasIA\":[]}"
@@ -70,12 +70,12 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "muestras": 15,
-      "min_ms": 237.27,
-      "max_ms": 670.47,
-      "avg_ms": 391.28,
-      "median_ms": 365.92,
-      "p95_ms": 670.47,
-      "std_dev": 108.63,
+      "min_ms": 207.98,
+      "max_ms": 623.75,
+      "avg_ms": 298.87,
+      "median_ms": 225.66,
+      "p95_ms": 623.75,
+      "std_dev": 116.72,
       "tasa_exito_pct": 100.0,
       "tamano_promedio_bytes": 1316,
       "sample_body": "[{\"id\":4,\"descripcion\":\"Deliveries, Cafés y Antojos (Hormiga)\",\"monto\":350.00,\"fecha\":\"2026-11-07\",\"tipo\":\"GASTO\",\"esGastoHormiga\":true,\"notas\":null,\"categoria\":{\"id\":13,\"nombre\":\"Gastos Hormiga (Snacks, Cafés, Antojos)\",\"tipo\":\"GASTO\",\"icono\":\"bi-cup-hot\",\"colorHex\":\"#b02a37\",\"esPredeterminada\":true},\"fechaCreacion\":\"2026-11-17T21:16:46.837235\"},{\"id\":3,\"descripcion\":\"Supermercado y Alimentación\",\"monto\":900.00,\"fecha\":\"2026-11-05\",\"tipo\":\"GASTO\",\"esGastoHormiga\":false,\"notas\":null,\"categoria\":{\"id\":6,\"nombre\":\"Alimentación y Supermercado\",\"tipo\":\"GASTO\",\"icono\":\"bi-cart4\",\"colorHex\":\"#fd7e14\",\"esPredeterminada\":true},\"fechaCreacion\":\"2026-11-17T21:16:46.737746\"},{\"id\":2,\"descripcion\":\"Pago de Alquiler y Cuotas\",\"monto\":1200.00,\"fecha\":\"2026-11-03\",\"tipo\":\"GASTO\",\"esGastoHormiga\":false,\"notas\":null,\"categoria\":{\"id\":7,\"nombre\":\"Vivienda y Alquiler\",\"tipo\":\"GASTO\",\"icono\":\"bi-house-door\",\"colorHex\":\"#dc3545\",\"esPredeterminada\":true},\"fechaCreacion\":\"2026-11-17T21:16:46.732472\"},{\"id\":1,\"descripcion\":\"Sueldo Mensual Principal\",\"monto\":5000.00,\"fecha\":\"2026-11-01\",\"tipo\":\"INGRESO\",\"esGastoHormiga\":false,\"notas\":null,\"categoria\":{\"id\":1,\"nombre\":\"Salario / Sueldo\",\"tipo\":\"INGRESO\",\"icono\":\"bi-cash-coin\",\"colorHex\":\"#198754\",\"esPredeterminada\":true},\"fechaCreacion\":\"2026-11-17T21:16:46.541329\"}]"
@@ -86,12 +86,12 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "muestras": 15,
-      "min_ms": 234.53,
-      "max_ms": 536.23,
-      "avg_ms": 333.17,
-      "median_ms": 290.85,
-      "p95_ms": 536.23,
-      "std_dev": 94.56,
+      "min_ms": 205.79,
+      "max_ms": 332.16,
+      "avg_ms": 226.1,
+      "median_ms": 216.97,
+      "p95_ms": 332.16,
+      "std_dev": 31.29,
       "tasa_exito_pct": 100.0,
       "tamano_promedio_bytes": 1893,
       "sample_body": "[{\"id\":6,\"nombre\":\"Alimentación y Supermercado\",\"tipo\":\"GASTO\",\"icono\":\"bi-cart4\",\"colorHex\":\"#fd7e14\",\"esPredeterminada\":true},{\"id\":14,\"nombre\":\"Compras Personales y Ropa\",\"tipo\":\"GASTO\",\"icono\":\"bi-bag-check\",\"colorHex\":\"#0b5ed7\",\"esPredeterminada\":true},{\"id\":11,\"nombre\":\"Educación y Cursos\",\"tipo\":\"GASTO\",\"icono\":\"bi-book\",\"colorHex\":\"#0d6efd\",\"esPredeterminada\":true},{\"id\":12,\"nombre\":\"Entretenimiento y Salidas\",\"tipo\":\"GASTO\",\"icono\":\"bi-controller\",\"colorHex\":\"#d63384\",\"esPredeterminada\":true},{\"id\":3,\"nombre\":\"Freelance / Proyectos\",\"tipo\":\"INGRESO\",\"icono\":\"bi-laptop\",\"colorHex\":\"#0dcaf0\",\"esPredeterminada\":true},{\"id\":13,\"nombre\":\"Gastos Hormiga (Snacks, Cafés, Antojos)\",\"tipo\":\"GASTO\",\"icono\":\"bi-cup-hot\",\"colorHex\":\"#b02a37\",\"esPredeterminada\":true},{\"id\":4,\"nombre\":\"Inversiones\",\"tipo\":\"INGRESO\",\"icono\":\"bi-graph-up-arrow\",\"colorHex\":\"#17a2b8\",\"esPredeterminada\":true},{\"id\":15,\"nombre\":\"Otros Gastos\",\"tipo\":\"GASTO\",\"icono\":\"bi-dash-circle\",\"colorHex\":\"#6c757d\",\"esPredeterminada\":true},{\"id\":5,\"nombre\":\"Otros Ingresos\",\"tipo\":\"INGRESO\",\"icono\":\"bi-plus-circle\",\"colorHex\":\"#6c757d\",\"esPredeterminada\":true},{\"id\":1,\"nombre\":\"Salario / Sueldo\",\"tipo\":\"INGRESO\",\"icono\":\"bi-cash-coin\",\"colorHex\":\"#198754\",\"esPredeterminada\":true},{\"id\":10,\"nombre\":\"Salud y Medicinas\",\"tipo\":\"GASTO\",\"icono\":\"bi-heart-pulse\",\"colorHex\":\"#e83e8c\",\"esPredeterminada\":true},{\"id\":8,\"nombre\":\"Servicios (Luz, Agua, Internet)\",\"tipo\":\"GASTO\",\"icono\":\"bi-lightning-charge\",\"colorHex\":\"#ffc107\",\"esPredeterminada\":true},{\"id\":9,\"nombre\":\"Transporte y Gasolina\",\"tipo\":\"GASTO\",\"icono\":\"bi-car-front\",\"colorHex\":\"#6f42c1\",\"esPredeterminada\":true},{\"id\":2,\"nombre\":\"Ventas / Negocio\",\"tipo\":\"INGRESO\",\"icono\":\"bi-shop\",\"colorHex\":\"#20c997\",\"esPredeterminada\":true},{\"id\":7,\"nombre\":\"Vivienda y Alquiler\",\"tipo\":\"GASTO\",\"icono\":\"bi-house-door\",\"colorHex\":\"#dc3545\",\"esPredeterminada\":true}]"
@@ -104,7 +104,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 1,
-      "latencia_ms": 383.11,
+      "latencia_ms": 302.71,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -114,7 +114,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 2,
-      "latencia_ms": 380.68,
+      "latencia_ms": 217.42,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -124,7 +124,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 3,
-      "latencia_ms": 308.2,
+      "latencia_ms": 239.43,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -134,7 +134,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 4,
-      "latencia_ms": 515.96,
+      "latencia_ms": 226.13,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -144,7 +144,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 5,
-      "latencia_ms": 294.53,
+      "latencia_ms": 211.5,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -154,7 +154,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 6,
-      "latencia_ms": 405.76,
+      "latencia_ms": 242.44,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -164,7 +164,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 7,
-      "latencia_ms": 535.79,
+      "latencia_ms": 229.59,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -174,7 +174,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 8,
-      "latencia_ms": 483.62,
+      "latencia_ms": 276.98,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -184,7 +184,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 9,
-      "latencia_ms": 1276.29,
+      "latencia_ms": 228.65,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -194,7 +194,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 10,
-      "latencia_ms": 485.93,
+      "latencia_ms": 204.04,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -204,7 +204,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 11,
-      "latencia_ms": 708.17,
+      "latencia_ms": 215.47,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -214,7 +214,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 12,
-      "latencia_ms": 321.55,
+      "latencia_ms": 244.96,
       "status_code": 200,
       "tamano_bytes": 9224
     },
@@ -224,508 +224,508 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/",
       "iteracion": 13,
-      "latencia_ms": 402.7,
-      "status_code": 200,
-      "tamano_bytes": 9224
-    },
-    {
-      "endpoint_id": "EP-01",
-      "endpoint_nombre": "Landing Page (HTML SPA)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/",
-      "iteracion": 14,
-      "latencia_ms": 338.31,
-      "status_code": 200,
-      "tamano_bytes": 9224
-    },
-    {
-      "endpoint_id": "EP-01",
-      "endpoint_nombre": "Landing Page (HTML SPA)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/",
-      "iteracion": 15,
-      "latencia_ms": 297.86,
-      "status_code": 200,
-      "tamano_bytes": 9224
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 1,
-      "latencia_ms": 304.08,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 2,
-      "latencia_ms": 355.41,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 3,
-      "latencia_ms": 513.91,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 4,
-      "latencia_ms": 519.95,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 5,
-      "latencia_ms": 261.26,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 6,
-      "latencia_ms": 533.2,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 7,
-      "latencia_ms": 634.15,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 8,
-      "latencia_ms": 432.99,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 9,
-      "latencia_ms": 280.75,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 10,
-      "latencia_ms": 346.64,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 11,
-      "latencia_ms": 475.06,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 12,
-      "latencia_ms": 257.87,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 13,
-      "latencia_ms": 294.83,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 14,
-      "latencia_ms": 473.63,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-02",
-      "endpoint_nombre": "Listado Usuarios (REST API)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
-      "iteracion": 15,
-      "latencia_ms": 232.42,
-      "status_code": 200,
-      "tamano_bytes": 1435
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 1,
-      "latencia_ms": 748.83,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 2,
-      "latencia_ms": 751.11,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 3,
-      "latencia_ms": 886.08,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 4,
-      "latencia_ms": 721.47,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 5,
-      "latencia_ms": 833.25,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 6,
-      "latencia_ms": 703.88,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 7,
-      "latencia_ms": 719.26,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 8,
-      "latencia_ms": 717.73,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 9,
-      "latencia_ms": 719.88,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 10,
-      "latencia_ms": 830.22,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 11,
-      "latencia_ms": 806.49,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 12,
-      "latencia_ms": 724.27,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 13,
-      "latencia_ms": 684.61,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 14,
-      "latencia_ms": 842.69,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-03",
-      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
-      "metodo": "POST",
-      "url": "https://antichihuan.onrender.com/api/auth/login",
-      "iteracion": 15,
-      "latencia_ms": 735.33,
-      "status_code": 200,
-      "tamano_bytes": 380
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 1,
-      "latencia_ms": 841.83,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 2,
-      "latencia_ms": 906.81,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 3,
-      "latencia_ms": 1038.44,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 4,
-      "latencia_ms": 782.78,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 5,
-      "latencia_ms": 535.55,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 6,
-      "latencia_ms": 532.27,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 7,
-      "latencia_ms": 632.07,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 8,
-      "latencia_ms": 433.88,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 9,
-      "latencia_ms": 433.24,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 10,
-      "latencia_ms": 635.98,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 11,
-      "latencia_ms": 739.63,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 12,
-      "latencia_ms": 532.9,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 13,
-      "latencia_ms": 416.85,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 14,
-      "latencia_ms": 548.96,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-04",
-      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
-      "iteracion": 15,
-      "latencia_ms": 515.05,
-      "status_code": 200,
-      "tamano_bytes": 2496
-    },
-    {
-      "endpoint_id": "EP-05",
-      "endpoint_nombre": "Transacciones Usuario (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/transacciones",
-      "iteracion": 1,
-      "latencia_ms": 670.47,
-      "status_code": 200,
-      "tamano_bytes": 1316
-    },
-    {
-      "endpoint_id": "EP-05",
-      "endpoint_nombre": "Transacciones Usuario (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/transacciones",
-      "iteracion": 2,
-      "latencia_ms": 410.4,
-      "status_code": 200,
-      "tamano_bytes": 1316
-    },
-    {
-      "endpoint_id": "EP-05",
-      "endpoint_nombre": "Transacciones Usuario (JWT Guard)",
-      "metodo": "GET",
-      "url": "https://antichihuan.onrender.com/api/transacciones",
-      "iteracion": 3,
       "latencia_ms": 237.27,
       "status_code": 200,
+      "tamano_bytes": 9224
+    },
+    {
+      "endpoint_id": "EP-01",
+      "endpoint_nombre": "Landing Page (HTML SPA)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/",
+      "iteracion": 14,
+      "latencia_ms": 567.9,
+      "status_code": 200,
+      "tamano_bytes": 9224
+    },
+    {
+      "endpoint_id": "EP-01",
+      "endpoint_nombre": "Landing Page (HTML SPA)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/",
+      "iteracion": 15,
+      "latencia_ms": 210.67,
+      "status_code": 200,
+      "tamano_bytes": 9224
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 1,
+      "latencia_ms": 231.1,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 2,
+      "latencia_ms": 221.93,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 3,
+      "latencia_ms": 208.46,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 4,
+      "latencia_ms": 232.78,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 5,
+      "latencia_ms": 216.78,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 6,
+      "latencia_ms": 237.87,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 7,
+      "latencia_ms": 195.42,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 8,
+      "latencia_ms": 222.7,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 9,
+      "latencia_ms": 231.03,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 10,
+      "latencia_ms": 225.36,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 11,
+      "latencia_ms": 233.91,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 12,
+      "latencia_ms": 286.26,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 13,
+      "latencia_ms": 229.91,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 14,
+      "latencia_ms": 212.77,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-02",
+      "endpoint_nombre": "Listado Usuarios (REST API)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/auth/usuarios",
+      "iteracion": 15,
+      "latencia_ms": 230.02,
+      "status_code": 200,
+      "tamano_bytes": 1536
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 1,
+      "latencia_ms": 1017.0,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 2,
+      "latencia_ms": 712.99,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 3,
+      "latencia_ms": 1118.2,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 4,
+      "latencia_ms": 725.03,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 5,
+      "latencia_ms": 718.42,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 6,
+      "latencia_ms": 616.95,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 7,
+      "latencia_ms": 626.51,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 8,
+      "latencia_ms": 904.16,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 9,
+      "latencia_ms": 627.06,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 10,
+      "latencia_ms": 619.79,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 11,
+      "latencia_ms": 724.2,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 12,
+      "latencia_ms": 617.25,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 13,
+      "latencia_ms": 619.88,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 14,
+      "latencia_ms": 622.94,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-03",
+      "endpoint_nombre": "Autenticación Login (JWT BCrypt)",
+      "metodo": "POST",
+      "url": "https://antichihuan.onrender.com/api/auth/login",
+      "iteracion": 15,
+      "latencia_ms": 711.46,
+      "status_code": 200,
+      "tamano_bytes": 380
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 1,
+      "latencia_ms": 2823.77,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 2,
+      "latencia_ms": 1016.75,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 3,
+      "latencia_ms": 1016.98,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 4,
+      "latencia_ms": 627.99,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 5,
+      "latencia_ms": 517.64,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 6,
+      "latencia_ms": 516.27,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 7,
+      "latencia_ms": 721.94,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 8,
+      "latencia_ms": 524.12,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 9,
+      "latencia_ms": 709.99,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 10,
+      "latencia_ms": 620.76,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 11,
+      "latencia_ms": 715.88,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 12,
+      "latencia_ms": 425.77,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 13,
+      "latencia_ms": 616.63,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 14,
+      "latencia_ms": 423.65,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-04",
+      "endpoint_nombre": "Dashboard Métricas (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/dashboard?mes=11&anio=2026",
+      "iteracion": 15,
+      "latencia_ms": 513.42,
+      "status_code": 200,
+      "tamano_bytes": 2496
+    },
+    {
+      "endpoint_id": "EP-05",
+      "endpoint_nombre": "Transacciones Usuario (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/transacciones",
+      "iteracion": 1,
+      "latencia_ms": 623.75,
+      "status_code": 200,
+      "tamano_bytes": 1316
+    },
+    {
+      "endpoint_id": "EP-05",
+      "endpoint_nombre": "Transacciones Usuario (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/transacciones",
+      "iteracion": 2,
+      "latencia_ms": 316.78,
+      "status_code": 200,
+      "tamano_bytes": 1316
+    },
+    {
+      "endpoint_id": "EP-05",
+      "endpoint_nombre": "Transacciones Usuario (JWT Guard)",
+      "metodo": "GET",
+      "url": "https://antichihuan.onrender.com/api/transacciones",
+      "iteracion": 3,
+      "latencia_ms": 425.74,
+      "status_code": 200,
       "tamano_bytes": 1316
     },
     {
@@ -734,7 +734,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 4,
-      "latencia_ms": 259.56,
+      "latencia_ms": 418.4,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -744,7 +744,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 5,
-      "latencia_ms": 365.92,
+      "latencia_ms": 225.66,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -754,7 +754,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 6,
-      "latencia_ms": 354.2,
+      "latencia_ms": 212.84,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -764,7 +764,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 7,
-      "latencia_ms": 430.48,
+      "latencia_ms": 215.64,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -774,7 +774,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 8,
-      "latencia_ms": 326.8,
+      "latencia_ms": 219.41,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -784,7 +784,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 9,
-      "latencia_ms": 337.46,
+      "latencia_ms": 214.54,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -794,7 +794,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 10,
-      "latencia_ms": 425.23,
+      "latencia_ms": 218.46,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -804,7 +804,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 11,
-      "latencia_ms": 541.45,
+      "latencia_ms": 322.5,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -814,7 +814,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 12,
-      "latencia_ms": 328.72,
+      "latencia_ms": 318.86,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -824,7 +824,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 13,
-      "latencia_ms": 322.68,
+      "latencia_ms": 316.87,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -834,7 +834,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 14,
-      "latencia_ms": 429.57,
+      "latencia_ms": 225.59,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -844,7 +844,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/transacciones",
       "iteracion": 15,
-      "latencia_ms": 428.98,
+      "latencia_ms": 207.98,
       "status_code": 200,
       "tamano_bytes": 1316
     },
@@ -854,7 +854,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 1,
-      "latencia_ms": 377.54,
+      "latencia_ms": 332.16,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -864,7 +864,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 2,
-      "latencia_ms": 248.66,
+      "latencia_ms": 216.97,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -874,7 +874,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 3,
-      "latencia_ms": 465.62,
+      "latencia_ms": 214.33,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -884,7 +884,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 4,
-      "latencia_ms": 290.85,
+      "latencia_ms": 212.6,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -894,7 +894,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 5,
-      "latencia_ms": 267.91,
+      "latencia_ms": 213.87,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -904,7 +904,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 6,
-      "latencia_ms": 246.69,
+      "latencia_ms": 205.79,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -914,7 +914,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 7,
-      "latencia_ms": 260.7,
+      "latencia_ms": 208.77,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -924,7 +924,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 8,
-      "latencia_ms": 234.53,
+      "latencia_ms": 224.1,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -934,7 +934,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 9,
-      "latencia_ms": 365.84,
+      "latencia_ms": 208.99,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -944,7 +944,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 10,
-      "latencia_ms": 280.29,
+      "latencia_ms": 230.76,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -954,7 +954,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 11,
-      "latencia_ms": 476.84,
+      "latencia_ms": 249.69,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -964,7 +964,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 12,
-      "latencia_ms": 536.23,
+      "latencia_ms": 213.08,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -974,7 +974,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 13,
-      "latencia_ms": 307.5,
+      "latencia_ms": 225.58,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -984,7 +984,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 14,
-      "latencia_ms": 359.28,
+      "latencia_ms": 217.86,
       "status_code": 200,
       "tamano_bytes": 1893
     },
@@ -994,7 +994,7 @@
       "metodo": "GET",
       "url": "https://antichihuan.onrender.com/api/categorias",
       "iteracion": 15,
-      "latencia_ms": 279.06,
+      "latencia_ms": 217.0,
       "status_code": 200,
       "tamano_bytes": 1893
     }
