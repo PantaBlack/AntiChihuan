@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
         <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4" 
              style="background-color: rgba(234, 179, 8, 0.15); border: 1px solid rgba(234, 179, 8, 0.4);">
           <i class="bi bi-stars text-warning fs-5"></i>
-          <span class="text-warning fw-bold small">Potenciado con Google Gemini AI</span>
+          <span class="text-warning fw-bold small">Potenciado con Google Gemini 3.8 Flash</span>
         </div>
 
         <!-- Título Principal -->

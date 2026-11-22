@@ -42,7 +42,7 @@ import { AuthService } from './core/services/auth.service';
             <a routerLink="/ia" routerLinkActive="bg-warning text-dark fw-bold"
                class="list-group-item list-group-item-action rounded-3 d-flex align-items-center gap-3 py-2 text-light border-0 bg-transparent">
               <i class="bi bi-robot"></i> Asistente IA
-              <span class="badge bg-warning text-dark ms-auto" style="font-size: 0.65rem;">Gemini</span>
+              <span class="badge bg-warning text-dark ms-auto" style="font-size: 0.65rem;">Gemini 3.8</span>
             </a>
           </div>
 

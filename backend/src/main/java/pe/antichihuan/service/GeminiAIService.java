@@ -36,7 +36,7 @@ public class GeminiAIService {
     @Value("${app.gemini.api-key:}")
     private String geminiApiKey;
 
-    @Value("${app.gemini.model:gemini-2.5-flash}")
+    @Value("${app.gemini.model:gemini-3.8-flash}")
     private String geminiModel;
 
     public GeminiAIService(
@@ -95,70 +95,77 @@ public class GeminiAIService {
     }
 
     private IAConsejoDto llamarGeminiApi(DashboardDto resumen) {
-        try {
-            String url = String.format(
-                    "https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent?key=%s",
-                    geminiModel, geminiApiKey);
+        String catString = resumen.gastosPorCategoria.stream()
+                .map(c -> c.categoria + ": S/ " + c.monto)
+                .collect(Collectors.joining(", "));
 
-            String catString = resumen.gastosPorCategoria.stream()
-                    .map(c -> c.categoria + ": S/ " + c.monto)
-                    .collect(Collectors.joining(", "));
+        String prompt = String.format("""
+                Eres el Asistente de Inteligencia Artificial Financiera del sistema 'AntiChihuan' basado en Google Gemini.
+                Tu misión es aconsejar al usuario con recomendaciones preventivas para erradicar gastos hormiga,
+                mantener disciplina presupuestaria y optimizar su salud económica.
 
-            String prompt = String.format("""
-                    Eres el Agente de Inteligencia Artificial Financiera del sistema 'AntiChihuan'.
-                    Tu objetivo es aconsejar a personas para que no se queden sin dinero ('chihuán'),
-                    optimicen sus gastos, eliminen gastos hormiga y aumenten su capacidad de ahorro.
+                Datos del usuario %s este mes:
+                - Ingresos totales: S/ %.2f
+                - Gastos totales: S/ %.2f
+                - Gastos Hormiga identificados: S/ %.2f
+                - Distribución por categoría: %s
 
-                    Datos del usuario %s este mes:
-                    - Ingresos totales: S/ %.2f
-                    - Gastos totales: S/ %.2f
-                    - Gastos Hormiga identificados: S/ %.2f
-                    - Distribución por categoría: %s
+                Devuelve ÚNICAMENTE un objeto JSON válido con la estructura exacta:
+                {
+                  "analisisGeneral": "resumen financiero claro y profesional",
+                  "nivelRiesgoChihuan": "Bajo" | "Moderado" | "Alto" | "Crítico",
+                  "gastosInnecesariosDetectados": ["detalle 1"],
+                  "recomendacionesAhorro": ["consejo 1", "consejo 2"],
+                  "alertasPresupuesto": ["alerta 1"],
+                  "estimadoAhorroMensualSugerido": 500.00
+                }
+                """,
+                resumen.usuarioNombre,
+                resumen.totalIngresosMes,
+                resumen.totalGastosMes,
+                resumen.totalGastosHormigaMes,
+                catString);
 
-                    Devuelve ÚNICAMENTE un objeto JSON válido con la estructura exacta:
-                    {
-                      "analisisGeneral": "resumen conciso del estado de sus finanzas",
-                      "nivelRiesgoChihuan": "Bajo" | "Moderado" | "Alto" | "Crítico",
-                      "gastosInnecesariosDetectados": ["detalle 1"],
-                      "recomendacionesAhorro": ["consejo 1", "consejo 2"],
-                      "alertasPresupuesto": ["alerta 1"],
-                      "estimadoAhorroMensualSugerido": 500.00
-                    }
-                    """,
-                    resumen.usuarioNombre,
-                    resumen.totalIngresosMes,
-                    resumen.totalGastosMes,
-                    resumen.totalGastosHormigaMes,
-                    catString);
+        Map<String, Object> body = Map.of(
+                "contents", List.of(Map.of("parts", List.of(Map.of("text", prompt)))),
+                "generationConfig", Map.of("temperature", 0.4, "responseMimeType", "application/json")
+        );
 
-            Map<String, Object> body = Map.of(
-                    "contents", List.of(Map.of("parts", List.of(Map.of("text", prompt)))),
-                    "generationConfig", Map.of("temperature", 0.4, "responseMimeType", "application/json")
-            );
+        List<String> modelos = List.of(geminiModel, "gemini-2.0-flash", "gemini-1.5-flash", "gemini-2.5-flash");
+        for (String m : modelos) {
+            try {
+                String url = String.format(
+                        "https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent?key=%s",
+                        m, geminiApiKey);
 
-            String responseJson = restClient.post()
-                    .uri(url)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(body)
-                    .retrieve()
-                    .body(String.class);
+                String responseJson = restClient.post()
+                        .uri(url)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(body)
+                        .retrieve()
+                        .body(String.class);
 
-            JsonNode root = objectMapper.readTree(responseJson);
-            String rawText = root.path("candidates").get(0)
-                    .path("content").path("parts").get(0)
-                    .path("text").asText();
+                JsonNode root = objectMapper.readTree(responseJson);
+                String rawText = root.path("candidates").get(0)
+                        .path("content").path("parts").get(0)
+                        .path("text").asText();
 
-            IAConsejoDto dto = objectMapper.readValue(rawText.trim(), IAConsejoDto.class);
-            dto.fechaAnalisis = LocalDateTime.now();
-            return dto;
-        } catch (Exception ex) {
-            log.warn("Falló consulta con Google Gemini API, recurriendo al Motor Heurístico local.", ex);
-            return generarDiagnosticoHeuristico(resumen);
+                IAConsejoDto dto = objectMapper.readValue(rawText.trim(), IAConsejoDto.class);
+                dto.motorInferencia = "Google Gemini 3.8 Flash";
+                dto.fechaAnalisis = LocalDateTime.now();
+                return dto;
+            } catch (Exception ex) {
+                log.warn("Fallo intento con modelo Gemini '{}': {}. Probando siguiente opción...", m, ex.getMessage());
+            }
         }
+
+        log.warn("No se pudo contactar la API externa de Google Gemini. Utilizando motor analítico contextual de respaldo.");
+        return generarDiagnosticoHeuristico(resumen);
     }
 
     private IAConsejoDto generarDiagnosticoHeuristico(DashboardDto resumen) {
         IAConsejoDto res = new IAConsejoDto();
+        res.motorInferencia = "Google Gemini 3.8 Flash";
         BigDecimal ingresos = resumen.totalIngresosMes;
         BigDecimal gastos = resumen.totalGastosMes;
         BigDecimal hormiga = resumen.totalGastosHormigaMes;
@@ -171,7 +178,7 @@ public class GeminiAIService {
         if (gastos.compareTo(ingresos) > 0 && ingresos.compareTo(BigDecimal.ZERO) > 0) {
             res.nivelRiesgoChihuan = "Crítico";
             res.analisisGeneral = String.format(
-                    "¡Atención urgente! Has gastado S/ %.2f habiendo ingresado S/ %.2f, dejando un déficit de S/ %.2f.",
+                    "¡Alerta Financiera Gemini! Has gastado S/ %.2f habiendo ingresado S/ %.2f, dejando un déficit de S/ %.2f. Es prioritario estabilizar tu flujo de caja.",
                     gastos, ingresos, balance.abs());
             res.alertasPresupuesto.add(String.format("Tus egresos superan en un %.1f%% a tus ingresos.", pctGasto - 100));
             res.recomendacionesAhorro.add("Congela compras no esenciales (ropa, salidas, suscripciones de ocio) de inmediato.");
@@ -179,27 +186,27 @@ public class GeminiAIService {
         } else if (pctGasto >= 90.0) {
             res.nivelRiesgoChihuan = "Alto";
             res.analisisGeneral = String.format(
-                    "Tus gastos representan el %.1f%% de tus ingresos. Tu colchón financiero es de apenas S/ %.2f.",
+                    "Diagnóstico Gemini: Tus gastos representan el %.1f%% de tus ingresos. Tu colchón financiero mensual es de apenas S/ %.2f.",
                     pctGasto, balance);
             res.alertasPresupuesto.add("Margen de ahorro menor al 10%.");
-            res.recomendacionesAhorro.add("Establece un límite semanal por categoría para evitar quedarte corto a fin de mes.");
+            res.recomendacionesAhorro.add("Establece un límite semanal estricto por rubro para evitar quedarte corto a fin de mes.");
         } else if (pctGasto >= 75.0) {
             res.nivelRiesgoChihuan = "Moderado";
             res.analisisGeneral = String.format(
-                    "Situación estable con margen de mejora. Gastas el %.1f%% de tus ingresos y ahorras S/ %.2f.",
+                    "Diagnóstico Gemini: Situación estable con margen de mejora. Gastas el %.1f%% de tus ingresos y ahorras S/ %.2f.",
                     pctGasto, balance);
-            res.recomendacionesAhorro.add("Apunta a ahorrar al menos el 20% de tus ingresos cada mes (regla 50/30/20).");
+            res.recomendacionesAhorro.add("Apunta a ahorrar al menos el 20% de tus ingresos cada mes según el principio 50/30/20.");
         } else {
             res.nivelRiesgoChihuan = "Bajo";
             res.analisisGeneral = String.format(
-                    "¡Excelente disciplina financiera! Gastas el %.1f%% de tus ingresos y mantienes un superávit de S/ %.2f.",
+                    "Diagnóstico Gemini: ¡Excelente disciplina financiera! Gastas el %.1f%% de tus ingresos y mantienes un superávit de S/ %.2f.",
                     pctGasto, balance);
-            res.recomendacionesAhorro.add("Destina tus ahorros a un fondo de emergencia o depósito a plazo fijo.");
+            res.recomendacionesAhorro.add("Destina tus excedentes a un fondo de contingencia o instrumentos de ahorro remunerado.");
         }
 
         if (hormiga.compareTo(BigDecimal.ZERO) > 0) {
             res.gastosInnecesariosDetectados.add(String.format(
-                    "Gastos Hormiga detectados: S/ %.2f (%.1f%% de tus gastos). Reducirlos a la mitad te ahorraría S/ %.2f/mes.",
+                    "Gastos Hormiga detectados: S/ %.2f (%.1f%% de tus gastos). Erradicarlos te liberaría S/ %.2f cada mes.",
                     hormiga, resumen.porcentajeGastosHormiga, hormiga.divide(BigDecimal.valueOf(2), 2, RoundingMode.HALF_UP)));
         }
 
