@@ -1,5 +1,7 @@
 package pe.antichihuan.controller;
 
+import jakarta.validation.Valid;
+import org.springframework.validation.BindingResult;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -28,8 +30,13 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-        var userOpt = usuarioRepository.findByEmailIgnoreCase(request.email);
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request, BindingResult result) {
+        if (result.hasErrors()) {
+            String errorMsg = result.getAllErrors().get(0).getDefaultMessage();
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", errorMsg));
+        }
+
+        var userOpt = usuarioRepository.findByEmailIgnoreCase(request.email.trim());
         if (userOpt.isEmpty() || !passwordEncoder.matches(request.password, userOpt.get().getPasswordHash())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(Map.of("message", "Credenciales incorrectas o usuario no registrado."));
@@ -41,15 +48,21 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
-        if (usuarioRepository.existsByEmailIgnoreCase(request.email)) {
+    public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest request, BindingResult result) {
+        if (result.hasErrors()) {
+            String errorMsg = result.getAllErrors().get(0).getDefaultMessage();
+            return ResponseEntity.badRequest().body(Map.of("message", errorMsg));
+        }
+
+        String emailLimpio = request.email.trim().toLowerCase();
+        if (usuarioRepository.existsByEmailIgnoreCase(emailLimpio)) {
             return ResponseEntity.badRequest()
                     .body(Map.of("message", "Ya existe una cuenta registrada con este correo electrónico."));
         }
 
         Usuario nuevo = new Usuario(
-                request.nombreCompleto,
-                request.email,
+                request.nombreCompleto.trim(),
+                emailLimpio,
                 passwordEncoder.encode(request.password)
         );
         usuarioRepository.save(nuevo);

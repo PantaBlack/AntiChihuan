@@ -79,7 +79,7 @@ public class GeminiAIService {
 
             RecomendacionIA rec = new RecomendacionIA();
             rec.setUsuario(user);
-            rec.setTitulo("Diagnóstico IA: Riesgo " + resultado.nivelRiesgoChihuan);
+            rec.setTitulo("Diagnóstico Gemini AI: Riesgo " + resultado.nivelRiesgoChihuan);
             rec.setMensaje(resultado.analisisGeneral + " Consejo clave: " + primerConsejo);
             rec.setPrioridad(prioridad);
             rec.setCategoriaAnalizada(resumen.gastosPorCategoria.isEmpty()

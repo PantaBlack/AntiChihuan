@@ -49,6 +49,7 @@ export interface IAConsejo {
   recomendacionesAhorro: string[];
   alertasPresupuesto: string[];
   estimadoAhorroMensualSugerido: number;
+  motorInferencia?: string;
   fechaAnalisis: string;
 }
 

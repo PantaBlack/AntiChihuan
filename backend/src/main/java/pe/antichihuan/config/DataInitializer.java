@@ -34,6 +34,15 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+        // Limpieza automática de registros residuales de prueba que no cumplan el estándar de validación
+        usuarioRepository.findAll().forEach(u -> {
+            if (u.getEmail() == null || !u.getEmail().contains("@") || u.getNombreCompleto() == null || u.getNombreCompleto().trim().length() < 3) {
+                transaccionRepository.deleteAll(transaccionRepository.findByUsuarioIdOrderByFechaDescIdDesc(u.getId()));
+                presupuestoRepository.deleteAll(presupuestoRepository.findByUsuarioIdAndMesAndAnio(u.getId(), LocalDate.now().getMonthValue(), LocalDate.now().getYear()));
+                usuarioRepository.delete(u);
+            }
+        });
+
         if (categoriaRepository.count() == 0) {
             categoriaRepository.saveAll(List.of(
                 new Categoria("Salario / Sueldo", TipoTransaccion.INGRESO, "bi-cash-coin", "#198754", true, null),

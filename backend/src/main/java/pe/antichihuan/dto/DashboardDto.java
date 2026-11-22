@@ -48,6 +48,7 @@ public class DashboardDto {
         public List<String> recomendacionesAhorro = new ArrayList<>();
         public List<String> alertasPresupuesto = new ArrayList<>();
         public BigDecimal estimadoAhorroMensualSugerido = BigDecimal.ZERO;
+        public String motorInferencia = "Google Gemini 2.5 Flash";
         public LocalDateTime fechaAnalisis = LocalDateTime.now();
     }
 
