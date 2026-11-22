@@ -1,5 +1,7 @@
 package pe.antichihuan.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -12,6 +14,8 @@ import java.util.List;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
+
+    private static final Logger log = LoggerFactory.getLogger(DataInitializer.class);
 
     private final CategoriaRepository categoriaRepository;
     private final UsuarioRepository usuarioRepository;
@@ -34,63 +38,58 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        // Limpieza automática de registros residuales de prueba que no cumplan el estándar de validación
-        usuarioRepository.findAll().forEach(u -> {
-            if (u.getEmail() == null || !u.getEmail().contains("@") || u.getNombreCompleto() == null || u.getNombreCompleto().trim().length() < 3) {
-                transaccionRepository.deleteAll(transaccionRepository.findByUsuarioIdOrderByFechaDescIdDesc(u.getId()));
-                presupuestoRepository.deleteAll(presupuestoRepository.findByUsuarioIdAndMesAndAnio(u.getId(), LocalDate.now().getMonthValue(), LocalDate.now().getYear()));
-                usuarioRepository.delete(u);
+        try {
+            if (categoriaRepository.count() == 0) {
+                categoriaRepository.saveAll(List.of(
+                    new Categoria("Salario / Sueldo", TipoTransaccion.INGRESO, "bi-cash-coin", "#198754", true, null),
+                    new Categoria("Ventas / Negocio", TipoTransaccion.INGRESO, "bi-shop", "#20c997", true, null),
+                    new Categoria("Freelance / Proyectos", TipoTransaccion.INGRESO, "bi-laptop", "#0dcaf0", true, null),
+                    new Categoria("Inversiones", TipoTransaccion.INGRESO, "bi-graph-up-arrow", "#17a2b8", true, null),
+                    new Categoria("Otros Ingresos", TipoTransaccion.INGRESO, "bi-plus-circle", "#6c757d", true, null),
+                    new Categoria("Alimentación y Supermercado", TipoTransaccion.GASTO, "bi-cart4", "#fd7e14", true, null),
+                    new Categoria("Vivienda y Alquiler", TipoTransaccion.GASTO, "bi-house-door", "#dc3545", true, null),
+                    new Categoria("Servicios (Luz, Agua, Internet)", TipoTransaccion.GASTO, "bi-lightning-charge", "#ffc107", true, null),
+                    new Categoria("Transporte y Gasolina", TipoTransaccion.GASTO, "bi-car-front", "#6f42c1", true, null),
+                    new Categoria("Salud y Medicinas", TipoTransaccion.GASTO, "bi-heart-pulse", "#e83e8c", true, null),
+                    new Categoria("Educación y Cursos", TipoTransaccion.GASTO, "bi-book", "#0d6efd", true, null),
+                    new Categoria("Entretenimiento y Salidas", TipoTransaccion.GASTO, "bi-controller", "#d63384", true, null),
+                    new Categoria("Gastos Hormiga (Snacks, Cafés, Antojos)", TipoTransaccion.GASTO, "bi-cup-hot", "#b02a37", true, null),
+                    new Categoria("Compras Personales y Ropa", TipoTransaccion.GASTO, "bi-bag-check", "#0b5ed7", true, null),
+                    new Categoria("Otros Gastos", TipoTransaccion.GASTO, "bi-dash-circle", "#6c757d", true, null)
+                ));
             }
-        });
 
-        if (categoriaRepository.count() == 0) {
-            categoriaRepository.saveAll(List.of(
-                new Categoria("Salario / Sueldo", TipoTransaccion.INGRESO, "bi-cash-coin", "#198754", true, null),
-                new Categoria("Ventas / Negocio", TipoTransaccion.INGRESO, "bi-shop", "#20c997", true, null),
-                new Categoria("Freelance / Proyectos", TipoTransaccion.INGRESO, "bi-laptop", "#0dcaf0", true, null),
-                new Categoria("Inversiones", TipoTransaccion.INGRESO, "bi-graph-up-arrow", "#17a2b8", true, null),
-                new Categoria("Otros Ingresos", TipoTransaccion.INGRESO, "bi-plus-circle", "#6c757d", true, null),
-                new Categoria("Alimentación y Supermercado", TipoTransaccion.GASTO, "bi-cart4", "#fd7e14", true, null),
-                new Categoria("Vivienda y Alquiler", TipoTransaccion.GASTO, "bi-house-door", "#dc3545", true, null),
-                new Categoria("Servicios (Luz, Agua, Internet)", TipoTransaccion.GASTO, "bi-lightning-charge", "#ffc107", true, null),
-                new Categoria("Transporte y Gasolina", TipoTransaccion.GASTO, "bi-car-front", "#6f42c1", true, null),
-                new Categoria("Salud y Medicinas", TipoTransaccion.GASTO, "bi-heart-pulse", "#e83e8c", true, null),
-                new Categoria("Educación y Cursos", TipoTransaccion.GASTO, "bi-book", "#0d6efd", true, null),
-                new Categoria("Entretenimiento y Salidas", TipoTransaccion.GASTO, "bi-controller", "#d63384", true, null),
-                new Categoria("Gastos Hormiga (Snacks, Cafés, Antojos)", TipoTransaccion.GASTO, "bi-cup-hot", "#b02a37", true, null),
-                new Categoria("Compras Personales y Ropa", TipoTransaccion.GASTO, "bi-bag-check", "#0b5ed7", true, null),
-                new Categoria("Otros Gastos", TipoTransaccion.GASTO, "bi-dash-circle", "#6c757d", true, null)
-            ));
-        }
+            if (usuarioRepository.count() == 0) {
+                String pwd = passwordEncoder.encode("Password123!");
+                List<Categoria> cats = categoriaRepository.findAll();
+                Categoria cSueldo = cats.get(0);
+                Categoria cComida = cats.get(5);
+                Categoria cVivienda = cats.get(6);
+                Categoria cHormiga = cats.get(12);
 
-        if (usuarioRepository.count() == 0) {
-            String pwd = passwordEncoder.encode("Password123!");
-            List<Categoria> cats = categoriaRepository.findAll();
-            Categoria cSueldo = cats.get(0);
-            Categoria cComida = cats.get(5);
-            Categoria cVivienda = cats.get(6);
-            Categoria cHormiga = cats.get(12);
-
-            seedPerfil("Gianino Hector Naranjo Servidio", "gianino@antichihuan.pe", pwd,
-                    5000, 1200, 900, 350, 3000, cSueldo, cVivienda, cComida, cHormiga);
-            seedPerfil("Alexis Mijael Huerta Usqueano", "alexis@antichihuan.pe", pwd,
-                    16500, 3200, 1800, 800, 8000, cSueldo, cVivienda, cComida, cHormiga);
-            seedPerfil("Anderson Fabrizzio Larios Tito", "anderson@antichihuan.pe", pwd,
-                    2400, 2100, 1200, 620, 2200, cSueldo, cVivienda, cComida, cHormiga);
-            seedPerfil("Samir Rojas Diaz", "samir@antichihuan.pe", pwd,
-                    3300, 1100, 760, 1320, 3200, cSueldo, cVivienda, cComida, cHormiga);
-            seedPerfil("Yimmy Diaz Jange", "yimmy@antichihuan.pe", pwd,
-                    3600, 1000, 700, 250, 2500, cSueldo, cVivienda, cComida, cHormiga);
-            seedPerfil("Carlos Slim Rodríguez", "carlos.slim@antichihuan.pe", pwd,
-                    38000, 6000, 3500, 500, 15000, cSueldo, cVivienda, cComida, cHormiga);
-            seedPerfil("Valeria Mendoza Paz", "valeria.deudas@antichihuan.pe", pwd,
-                    2200, 2800, 1400, 750, 2000, cSueldo, cVivienda, cComida, cHormiga);
-            seedPerfil("Mateo Quispe Flores", "mateo.delivery@antichihuan.pe", pwd,
-                    2800, 800, 550, 1450, 2500, cSueldo, cVivienda, cComida, cHormiga);
-            seedPerfil("Lucía Fernández Castro", "lucia.frugal@antichihuan.pe", pwd,
-                    4200, 900, 520, 80, 2000, cSueldo, cVivienda, cComida, cHormiga);
-            seedPerfil("Renzo Balbuena Silva", "renzo.chihuan@antichihuan.pe", pwd,
-                    1800, 1900, 950, 790, 1800, cSueldo, cVivienda, cComida, cHormiga);
+                seedPerfil("Gianino Hector Naranjo Servidio", "gianino@antichihuan.pe", pwd,
+                        5000, 1200, 900, 350, 3000, cSueldo, cVivienda, cComida, cHormiga);
+                seedPerfil("Alexis Mijael Huerta Usqueano", "alexis@antichihuan.pe", pwd,
+                        16500, 3200, 1800, 800, 8000, cSueldo, cVivienda, cComida, cHormiga);
+                seedPerfil("Anderson Fabrizzio Larios Tito", "anderson@antichihuan.pe", pwd,
+                        2400, 2100, 1200, 620, 2200, cSueldo, cVivienda, cComida, cHormiga);
+                seedPerfil("Samir Rojas Diaz", "samir@antichihuan.pe", pwd,
+                        3300, 1100, 760, 1320, 3200, cSueldo, cVivienda, cComida, cHormiga);
+                seedPerfil("Yimmy Diaz Jange", "yimmy@antichihuan.pe", pwd,
+                        3600, 1000, 700, 250, 2500, cSueldo, cVivienda, cComida, cHormiga);
+                seedPerfil("Carlos Slim Rodríguez", "carlos.slim@antichihuan.pe", pwd,
+                        38000, 6000, 3500, 500, 15000, cSueldo, cVivienda, cComida, cHormiga);
+                seedPerfil("Valeria Mendoza Paz", "valeria.deudas@antichihuan.pe", pwd,
+                        2200, 2800, 1400, 750, 2000, cSueldo, cVivienda, cComida, cHormiga);
+                seedPerfil("Mateo Quispe Flores", "mateo.delivery@antichihuan.pe", pwd,
+                        2800, 800, 550, 1450, 2500, cSueldo, cVivienda, cComida, cHormiga);
+                seedPerfil("Lucía Fernández Castro", "lucia.frugal@antichihuan.pe", pwd,
+                        4200, 900, 520, 80, 2000, cSueldo, cVivienda, cComida, cHormiga);
+                seedPerfil("Renzo Balbuena Silva", "renzo.chihuan@antichihuan.pe", pwd,
+                        1800, 1900, 950, 790, 1800, cSueldo, cVivienda, cComida, cHormiga);
+            }
+        } catch (Exception ex) {
+            log.warn("Advertencia en inicialización de datos de prueba: {}", ex.getMessage());
         }
     }
 
