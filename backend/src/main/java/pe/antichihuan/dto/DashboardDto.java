@@ -24,6 +24,7 @@ public class DashboardDto {
     public String mensajeSemaforo;
     public List<Transaccion> ultimasTransacciones = new ArrayList<>();
     public List<CategoriaGastoItem> gastosPorCategoria = new ArrayList<>();
+    public List<CategoriaGastoItem> ingresosPorCategoria = new ArrayList<>();
     public List<MesHistoricoItem> historicoUltimosMeses = new ArrayList<>();
     public List<RecomendacionIA> alertasIA = new ArrayList<>();
 

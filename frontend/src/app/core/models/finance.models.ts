@@ -75,6 +75,13 @@ export interface DashboardData {
     icono: string;
     porcentaje: number;
   }[];
+  ingresosPorCategoria?: {
+    categoria: string;
+    monto: number;
+    colorHex: string;
+    icono: string;
+    porcentaje: number;
+  }[];
   historicoUltimosMeses: {
     mesNombre: string;
     ingresos: number;

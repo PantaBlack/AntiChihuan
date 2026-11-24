@@ -71,16 +71,64 @@ import Chart from 'chart.js/auto';
       <div class="row g-4 mb-4">
         <div class="col-lg-5">
           <div class="card card-dark p-4 h-100">
-            <h6 class="fw-bold text-white mb-3">Distribución de Gastos por Categoría</h6>
-            <div style="height: 250px;">
-              <canvas #donaCanvas></canvas>
+            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+              <h6 class="fw-bold text-white mb-0">
+                <i class="bi bi-pie-chart-fill text-warning me-1"></i>
+                Distribución por Categoría
+              </h6>
+              <!-- Switcher Gastos / Ingresos -->
+              <div class="btn-group btn-group-sm" role="group">
+                <button type="button" class="btn fw-semibold"
+                        [ngClass]="tipoVistaGrafico === 'GASTOS' ? 'btn-danger' : 'btn-outline-secondary text-light'"
+                        (click)="cambiarVistaGrafico('GASTOS')">
+                  Gastos ({{ data.gastosPorCategoria.length }})
+                </button>
+                <button type="button" class="btn fw-semibold"
+                        [ngClass]="tipoVistaGrafico === 'INGRESOS' ? 'btn-success' : 'btn-outline-secondary text-light'"
+                        (click)="cambiarVistaGrafico('INGRESOS')">
+                  Ingresos ({{ data.ingresosPorCategoria?.length || 0 }})
+                </button>
+              </div>
             </div>
+
+            @if (itemsGraficoActual.length > 0) {
+              <div style="height: 220px; position: relative;">
+                <canvas #donaCanvas></canvas>
+              </div>
+
+              <!-- Desglose de categorías con montos y porcentajes legibles -->
+              <div class="mt-3 pt-3 border-top border-secondary border-opacity-25" style="max-height: 200px; overflow-y: auto;">
+                <div class="d-flex flex-column gap-2">
+                  @for (cat of itemsGraficoActual; track cat.categoria) {
+                    <div class="d-flex align-items-center justify-content-between p-2 rounded-2" style="background: rgba(255,255,255,0.03);">
+                      <div class="d-flex align-items-center gap-2 text-truncate me-2">
+                        <span class="rounded-circle d-inline-block flex-shrink-0" [style.background-color]="cat.colorHex" style="width: 10px; height: 10px;"></span>
+                        <i [class]="'bi ' + cat.icono" class="text-secondary small"></i>
+                        <span class="small text-white text-truncate">{{ cat.categoria }}</span>
+                      </div>
+                      <div class="text-end flex-shrink-0">
+                        <span class="small fw-bold text-light">S/ {{ cat.monto | number:'1.2-2' }}</span>
+                        <span class="badge bg-dark text-muted ms-2 border border-secondary border-opacity-25" style="font-size: 0.7rem;">{{ cat.porcentaje }}%</span>
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            } @else {
+              <div class="text-center py-5 text-muted">
+                <i class="bi bi-pie-chart fs-1 d-block mb-2 text-secondary opacity-50"></i>
+                <p class="small mb-0">No hay {{ tipoVistaGrafico === 'GASTOS' ? 'gastos' : 'ingresos' }} registrados en este mes.</p>
+              </div>
+            }
           </div>
         </div>
         <div class="col-lg-7">
           <div class="card card-dark p-4 h-100">
-            <h6 class="fw-bold text-white mb-3">Ingresos vs Gastos (Últimos 6 Meses)</h6>
-            <div style="height: 250px;">
+            <h6 class="fw-bold text-white mb-3">
+              <i class="bi bi-bar-chart-fill text-info me-1"></i>
+              Ingresos vs Gastos (Últimos 6 Meses)
+            </h6>
+            <div style="height: 380px;">
               <canvas #barrasCanvas></canvas>
             </div>
           </div>
@@ -91,6 +139,10 @@ import Chart from 'chart.js/auto';
 })
 export class DashboardComponent implements OnInit {
   data?: DashboardData;
+  tipoVistaGrafico: 'GASTOS' | 'INGRESOS' = 'GASTOS';
+  private donaChartInstance?: Chart;
+  private barrasChartInstance?: Chart;
+
   @ViewChild('donaCanvas') donaCanvas?: ElementRef<HTMLCanvasElement>;
   @ViewChild('barrasCanvas') barrasCanvas?: ElementRef<HTMLCanvasElement>;
 
@@ -103,33 +155,95 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  get itemsGraficoActual() {
+    if (!this.data) return [];
+    return this.tipoVistaGrafico === 'GASTOS'
+      ? (this.data.gastosPorCategoria || [])
+      : (this.data.ingresosPorCategoria || []);
+  }
+
+  cambiarVistaGrafico(tipo: 'GASTOS' | 'INGRESOS'): void {
+    this.tipoVistaGrafico = tipo;
+    setTimeout(() => this.renderDonaChart(), 50);
+  }
+
   private renderCharts(): void {
-    if (!this.data) return;
-    if (this.donaCanvas) {
-      new Chart(this.donaCanvas.nativeElement, {
-        type: 'doughnut',
-        data: {
-          labels: this.data.gastosPorCategoria.map(c => c.categoria),
-          datasets: [{
-            data: this.data.gastosPorCategoria.map(c => c.monto),
-            backgroundColor: this.data.gastosPorCategoria.map(c => c.colorHex)
-          }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-      });
+    this.renderDonaChart();
+    this.renderBarrasChart();
+  }
+
+  private renderDonaChart(): void {
+    if (!this.data || !this.donaCanvas) return;
+    if (this.donaChartInstance) {
+      this.donaChartInstance.destroy();
+      this.donaChartInstance = undefined;
     }
-    if (this.barrasCanvas) {
-      new Chart(this.barrasCanvas.nativeElement, {
-        type: 'bar',
-        data: {
-          labels: this.data.historicoUltimosMeses.map(h => h.mesNombre),
-          datasets: [
-            { label: 'Ingresos (S/)', data: this.data.historicoUltimosMeses.map(h => h.ingresos), backgroundColor: '#10b981' },
-            { label: 'Gastos (S/)', data: this.data.historicoUltimosMeses.map(h => h.gastos), backgroundColor: '#f43f5e' }
-          ]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-      });
+
+    const items = this.itemsGraficoActual;
+    if (items.length === 0) return;
+
+    this.donaChartInstance = new Chart(this.donaCanvas.nativeElement, {
+      type: 'doughnut',
+      data: {
+        labels: items.map(c => c.categoria),
+        datasets: [{
+          data: items.map(c => Number(c.monto)),
+          backgroundColor: items.map(c => c.colorHex),
+          borderWidth: 2,
+          borderColor: '#131b2e'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              color: '#cbd5e1',
+              boxWidth: 12,
+              font: { size: 11 }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: (ctx) => ` ${ctx.label}: S/ ${Number(ctx.raw).toFixed(2)}`
+            }
+          }
+        }
+      }
+    });
+  }
+
+  private renderBarrasChart(): void {
+    if (!this.data || !this.barrasCanvas) return;
+    if (this.barrasChartInstance) {
+      this.barrasChartInstance.destroy();
+      this.barrasChartInstance = undefined;
     }
+
+    this.barrasChartInstance = new Chart(this.barrasCanvas.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: this.data.historicoUltimosMeses.map(h => h.mesNombre),
+        datasets: [
+          { label: 'Ingresos (S/)', data: this.data.historicoUltimosMeses.map(h => Number(h.ingresos)), backgroundColor: '#10b981', borderRadius: 4 },
+          { label: 'Gastos (S/)', data: this.data.historicoUltimosMeses.map(h => Number(h.gastos)), backgroundColor: '#f43f5e', borderRadius: 4 }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: { color: '#cbd5e1' }
+          }
+        },
+        scales: {
+          x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+          y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+        }
+      }
+    });
   }
 }

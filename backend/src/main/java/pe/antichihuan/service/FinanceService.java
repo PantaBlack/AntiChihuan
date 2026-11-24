@@ -126,6 +126,29 @@ public class FinanceService {
                 .sorted((a1, b1) -> b1.monto.compareTo(a1.monto))
                 .collect(Collectors.toList());
 
+        // Ingresos agrupados por categoría (para alternar en gráfico de dona)
+        Map<Categoria, BigDecimal> agrupadoIngresos = transaccionesMes.stream()
+                .filter(t -> t.getTipo() == TipoTransaccion.INGRESO && t.getCategoria() != null)
+                .collect(Collectors.groupingBy(
+                        Transaccion::getCategoria,
+                        Collectors.reducing(BigDecimal.ZERO, Transaccion::getMonto, BigDecimal::add)
+                ));
+
+        List<CategoriaGastoItem> ingresosPorCat = agrupadoIngresos.entrySet().stream()
+                .map(entry -> {
+                    CategoriaGastoItem item = new CategoriaGastoItem();
+                    item.categoria = entry.getKey().getNombre();
+                    item.monto = entry.getValue();
+                    item.colorHex = entry.getKey().getColorHex();
+                    item.icono = entry.getKey().getIcono();
+                    item.porcentaje = totalIngresos.compareTo(BigDecimal.ZERO) > 0
+                            ? entry.getValue().multiply(BigDecimal.valueOf(100)).divide(totalIngresos, 1, RoundingMode.HALF_UP).doubleValue()
+                            : 0.0;
+                    return item;
+                })
+                .sorted((a1, b1) -> b1.monto.compareTo(a1.monto))
+                .collect(Collectors.toList());
+
         // Histórico últimos 6 meses (para gráfico de barras)
         List<MesHistoricoItem> historico = new ArrayList<>();
         for (int i = 5; i >= 0; i--) {
@@ -161,6 +184,7 @@ public class FinanceService {
         dto.ultimasTransacciones = transaccionRepository.findByUsuarioIdOrderByFechaDescIdDesc(usuarioId)
                 .stream().limit(8).collect(Collectors.toList());
         dto.gastosPorCategoria = gastosPorCat;
+        dto.ingresosPorCategoria = ingresosPorCat;
         dto.historicoUltimosMeses = historico;
         dto.alertasIA = recomendacionIARepository.findTop4ByUsuarioIdOrderByFechaGeneracionDesc(usuarioId);
 
