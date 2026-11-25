@@ -14,10 +14,10 @@ import Chart from 'chart.js/auto';
     @if (data) {
       <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div>
-          <h2 class="fw-bold mb-1 text-white">Hola, {{ data.usuarioNombre }} 👋</h2>
+          <h2 class="fw-bold mb-1 text-white fs-3 fs-md-2">Hola, {{ data.usuarioNombre }} 👋</h2>
           <p class="text-muted small mb-0">Resumen financiero para <strong class="text-warning">{{ data.nombreMesActual }} {{ data.anioActual }}</strong></p>
         </div>
-        <a routerLink="/ia" class="btn btn-warning btn-sm fw-bold text-dark px-3">
+        <a routerLink="/ia" class="btn btn-warning btn-sm fw-bold text-dark px-3 shadow-sm">
           <i class="bi bi-stars me-1"></i> Diagnóstico IA Gemini
         </a>
       </div>
@@ -37,32 +37,32 @@ import Chart from 'chart.js/auto';
       </div>
 
       <!-- 4 Tarjetas KPI -->
-      <div class="row g-3 mb-4">
-        <div class="col-sm-6 col-xl-3">
+      <div class="row g-2 g-md-3 mb-4">
+        <div class="col-6 col-lg-3">
           <div class="card card-dark p-3 h-100">
-            <span class="small text-muted">Ingresos del Mes</span>
-            <h3 class="fw-bold text-success mt-1">S/ {{ data.totalIngresosMes | number:'1.2-2' }}</h3>
+            <span class="small text-muted" style="font-size: 0.78rem;">Ingresos del Mes</span>
+            <h3 class="fw-bold text-success mt-1 fs-5 fs-md-4">S/ {{ data.totalIngresosMes | number:'1.2-2' }}</h3>
           </div>
         </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-6 col-lg-3">
           <div class="card card-dark p-3 h-100">
-            <span class="small text-muted">Gastos del Mes</span>
-            <h3 class="fw-bold text-danger mt-1">S/ {{ data.totalGastosMes | number:'1.2-2' }}</h3>
+            <span class="small text-muted" style="font-size: 0.78rem;">Gastos del Mes</span>
+            <h3 class="fw-bold text-danger mt-1 fs-5 fs-md-4">S/ {{ data.totalGastosMes | number:'1.2-2' }}</h3>
           </div>
         </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-6 col-lg-3">
           <div class="card card-dark p-3 h-100">
-            <span class="small text-muted">Balance Disponible</span>
-            <h3 class="fw-bold mt-1" [ngClass]="data.balanceMes >= 0 ? 'text-white' : 'text-danger'">
+            <span class="small text-muted" style="font-size: 0.78rem;">Balance Disponible</span>
+            <h3 class="fw-bold mt-1 fs-5 fs-md-4" [ngClass]="data.balanceMes >= 0 ? 'text-white' : 'text-danger'">
               S/ {{ data.balanceMes | number:'1.2-2' }}
             </h3>
           </div>
         </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-6 col-lg-3">
           <div class="card card-dark p-3 h-100">
-            <span class="small text-muted">Fuga Gastos Hormiga 🐜</span>
-            <h3 class="fw-bold text-warning mt-1">S/ {{ data.totalGastosHormigaMes | number:'1.2-2' }}</h3>
-            <span class="small text-muted">{{ data.porcentajeGastosHormiga }}% del gasto total</span>
+            <span class="small text-muted" style="font-size: 0.78rem;">Fuga Gastos Hormiga 🐜</span>
+            <h3 class="fw-bold text-warning mt-1 fs-5 fs-md-4">S/ {{ data.totalGastosHormigaMes | number:'1.2-2' }}</h3>
+            <span class="text-muted" style="font-size: 0.72rem;">{{ data.porcentajeGastosHormiga }}% del gasto total</span>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@ import Chart from 'chart.js/auto';
       <!-- Gráficos Chart.js -->
       <div class="row g-4 mb-4">
         <div class="col-lg-5">
-          <div class="card card-dark p-4 h-100">
+          <div class="card card-dark p-3 p-md-4 h-100">
             <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
               <h6 class="fw-bold text-white mb-0">
                 <i class="bi bi-pie-chart-fill text-warning me-1"></i>
@@ -92,7 +92,7 @@ import Chart from 'chart.js/auto';
             </div>
 
             @if (itemsGraficoActual.length > 0) {
-              <div style="height: 220px; position: relative;">
+              <div style="height: 220px; position: relative; width: 100%;">
                 <canvas #donaCanvas></canvas>
               </div>
 
@@ -123,12 +123,12 @@ import Chart from 'chart.js/auto';
           </div>
         </div>
         <div class="col-lg-7">
-          <div class="card card-dark p-4 h-100">
+          <div class="card card-dark p-3 p-md-4 h-100">
             <h6 class="fw-bold text-white mb-3">
               <i class="bi bi-bar-chart-fill text-info me-1"></i>
               Ingresos vs Gastos (Últimos 6 Meses)
             </h6>
-            <div style="height: 380px;">
+            <div style="height: 320px; min-height: 260px; position: relative; width: 100%;">
               <canvas #barrasCanvas></canvas>
             </div>
           </div>

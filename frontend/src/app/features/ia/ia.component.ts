@@ -8,24 +8,24 @@ import { IAConsejo, RecomendacionIA } from '../../core/models/finance.models';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
       <div>
-        <div class="d-flex align-items-center gap-2 mb-1">
-          <h4 class="fw-bold text-white mb-0"><i class="bi bi-robot text-warning me-2"></i>Asistente Financiero AntiChihuan</h4>
+        <div class="d-flex align-items-center gap-2 mb-1 flex-wrap">
+          <h4 class="fw-bold text-white mb-0 fs-5 fs-md-4"><i class="bi bi-robot text-warning me-2"></i>Asistente Financiero AntiChihuan</h4>
           <span class="badge bg-primary text-white px-2 py-1" style="font-size: 0.75rem;">
             <i class="bi bi-stars me-1 text-warning"></i>Google Gemini 3.8 Flash
           </span>
         </div>
         <p class="text-muted small mb-0">Agente de diagnóstico predictivo y detección de fugas de capital con IA</p>
       </div>
-      <button (click)="solicitarDiagnostico()" [disabled]="cargando" class="btn btn-warning fw-bold text-dark px-4 shadow">
+      <button (click)="solicitarDiagnostico()" [disabled]="cargando" class="btn btn-warning fw-bold text-dark px-3 px-sm-4 shadow">
         <i class="bi bi-sparkles me-1"></i>
         {{ cargando ? 'Consultando Google Gemini 3.8...' : 'Generar Diagnóstico Gemini 3.8' }}
       </button>
     </div>
 
     @if (diagnostico) {
-      <div class="card card-dark p-4 mb-4 border-warning shadow-lg">
+      <div class="card card-dark p-3 p-md-4 mb-4 border-warning shadow-lg">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3 pb-3 border-bottom" style="border-color: #2a374f !important;">
           <div class="d-flex align-items-center gap-2">
             <span class="badge rounded-pill px-3 py-1 text-white" style="background: linear-gradient(135deg, #4f46e5, #06b6d4);">

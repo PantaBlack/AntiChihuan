@@ -113,3 +113,30 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .nav-link:hover {
   color: #fbbf24 !important;
 }
+
+/* Reglas de Responsividad Global Mobile-First */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a374f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b4b68;
+}
+
+@media (max-width: 768px) {
+  .card, .custom-card, .card-dark {
+    border-radius: 0.75rem;
+  }
+}

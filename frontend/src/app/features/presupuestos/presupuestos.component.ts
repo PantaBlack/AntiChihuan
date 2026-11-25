@@ -9,22 +9,22 @@ import { Presupuesto } from '../../core/models/finance.models';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <h4 class="fw-bold text-white mb-4">Control de Presupuestos Mensuales</h4>
-    <div class="card card-dark p-4 mb-4">
+    <h4 class="fw-bold text-white mb-4 fs-5 fs-md-4">Control de Presupuestos Mensuales</h4>
+    <div class="card card-dark p-3 p-md-4 mb-4">
       <form (ngSubmit)="guardar()" class="row g-3 align-items-end">
-        <div class="col-md-3">
+        <div class="col-6 col-md-3">
           <label class="form-label small">Mes</label>
           <input type="number" min="1" max="12" class="form-control bg-dark text-white border-secondary" [(ngModel)]="mes" name="mes" />
         </div>
-        <div class="col-md-3">
+        <div class="col-6 col-md-3">
           <label class="form-label small">Año</label>
           <input type="number" class="form-control bg-dark text-white border-secondary" [(ngModel)]="anio" name="anio" />
         </div>
-        <div class="col-md-4">
+        <div class="col-12 col-md-4">
           <label class="form-label small">Monto Límite Mensual (S/)</label>
           <input type="number" step="0.01" class="form-control bg-dark text-white border-secondary" [(ngModel)]="montoLimite" name="montoLimite" />
         </div>
-        <div class="col-md-2">
+        <div class="col-12 col-md-2">
           <button type="submit" class="btn btn-warning fw-bold text-dark w-100">Asignar</button>
         </div>
       </form>

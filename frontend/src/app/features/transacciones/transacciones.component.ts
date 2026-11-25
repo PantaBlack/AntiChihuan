@@ -9,15 +9,15 @@ import { Categoria, Transaccion } from '../../core/models/finance.models';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h4 class="fw-bold text-white mb-0">Gestión de Transacciones y Gastos Hormiga</h4>
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+      <h4 class="fw-bold text-white mb-0 fs-5 fs-md-4">Gestión de Transacciones y Gastos Hormiga</h4>
       <button (click)="descargarCsv()" class="btn btn-outline-warning btn-sm">
         <i class="bi bi-file-earmark-spreadsheet me-1"></i> Exportar CSV
       </button>
     </div>
 
     <!-- Formulario Reactivo de Registro -->
-    <div class="card card-dark p-4 mb-4">
+    <div class="card card-dark p-3 p-md-4 mb-4">
       <h6 class="fw-bold text-warning mb-3">Registrar Nuevo Movimiento</h6>
       <form (ngSubmit)="guardar()" class="row g-3">
         <div class="col-md-3">
@@ -58,40 +58,42 @@ import { Categoria, Transaccion } from '../../core/models/finance.models';
     </div>
 
     <!-- Tabla de Movimientos -->
-    <div class="card card-dark p-4">
-      <table class="table table-dark table-hover align-middle mb-0">
-        <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Descripción</th>
-            <th>Categoría</th>
-            <th class="text-end">Monto</th>
-            <th class="text-end">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (t of transacciones; track t.id) {
+    <div class="card card-dark p-3 p-md-4">
+      <div class="table-responsive">
+        <table class="table table-dark table-hover align-middle mb-0 text-nowrap">
+          <thead>
             <tr>
-              <td class="small text-muted">{{ t.fecha }}</td>
-              <td>
-                <span class="fw-semibold">{{ t.descripcion }}</span>
-                @if (t.esGastoHormiga) {
-                  <span class="badge bg-warning text-dark ms-2">Hormiga 🐜</span>
-                }
-              </td>
-              <td>{{ t.categoria?.nombre }}</td>
-              <td class="text-end fw-bold" [ngClass]="t.tipo === 'INGRESO' ? 'text-success' : 'text-danger'">
-                {{ t.tipo === 'INGRESO' ? '+' : '-' }} S/ {{ t.monto | number:'1.2-2' }}
-              </td>
-              <td class="text-end">
-                <button (click)="eliminar(t.id)" class="btn btn-outline-danger btn-sm">
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
+              <th>Fecha</th>
+              <th>Descripción</th>
+              <th>Categoría</th>
+              <th class="text-end">Monto</th>
+              <th class="text-end">Acciones</th>
             </tr>
-          }
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            @for (t of transacciones; track t.id) {
+              <tr>
+                <td class="small text-muted">{{ t.fecha }}</td>
+                <td>
+                  <span class="fw-semibold">{{ t.descripcion }}</span>
+                  @if (t.esGastoHormiga) {
+                    <span class="badge bg-warning text-dark ms-2">Hormiga 🐜</span>
+                  }
+                </td>
+                <td>{{ t.categoria?.nombre }}</td>
+                <td class="text-end fw-bold" [ngClass]="t.tipo === 'INGRESO' ? 'text-success' : 'text-danger'">
+                  {{ t.tipo === 'INGRESO' ? '+' : '-' }} S/ {{ t.monto | number:'1.2-2' }}
+                </td>
+                <td class="text-end">
+                  <button (click)="eliminar(t.id)" class="btn btn-outline-danger btn-sm">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   `
 })
