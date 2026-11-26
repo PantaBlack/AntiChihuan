@@ -11,8 +11,8 @@ import { Categoria, Transaccion } from '../../core/models/finance.models';
   template: `
     <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
       <h4 class="fw-bold text-white mb-0 fs-5 fs-md-4">Gestión de Transacciones y Gastos Hormiga</h4>
-      <button (click)="descargarCsv()" class="btn btn-outline-warning btn-sm">
-        <i class="bi bi-file-earmark-spreadsheet me-1"></i> Exportar CSV
+      <button (click)="descargarCsv()" class="btn btn-outline-warning btn-sm d-flex align-items-center gap-1 shadow-sm">
+        <i class="bi bi-file-earmark-excel-fill text-success"></i> Exportar a Excel (CSV)
       </button>
     </div>
 
@@ -143,9 +143,11 @@ export class TransaccionesComponent implements OnInit {
     this.api.exportarCsv().subscribe(blob => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
+      const fechaHoy = new Date().toISOString().slice(0, 10);
       a.href = url;
-      a.download = 'Transacciones_AntiChihuan.csv';
+      a.download = `Transacciones_AntiChihuan_${fechaHoy}.csv`;
       a.click();
+      window.URL.revokeObjectURL(url);
     });
   }
 }

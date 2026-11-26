@@ -9,9 +9,11 @@ import pe.antichihuan.dto.DashboardDto.TransaccionRequest;
 import pe.antichihuan.model.*;
 import pe.antichihuan.repository.*;
 
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 @RestController
@@ -99,23 +101,66 @@ public class TransaccionController {
         Long usuarioId = (Long) auth.getPrincipal();
         List<Transaccion> lista = transaccionRepository.findByUsuarioIdOrderByFechaDescIdDesc(usuarioId);
 
-        StringBuilder sb = new StringBuilder("\uFEFFID,Fecha,Tipo,Categoría,Descripción,Monto,EsGastoHormiga,Notas\n");
+        // BOM UTF-8 (\uFEFF) + directiva sep=; para que Microsoft Excel en cualquier idioma divida las columnas correctamente
+        StringBuilder sb = new StringBuilder();
+        sb.append("\uFEFFsep=;\r\n");
+        sb.append("ID;Fecha;Tipo de Movimiento;Categoría;Descripción;Monto (S/);¿Es Gasto Hormiga?;Notas\r\n");
+
+        BigDecimal totalIngresos = BigDecimal.ZERO;
+        BigDecimal totalGastos = BigDecimal.ZERO;
+        BigDecimal totalHormiga = BigDecimal.ZERO;
+
         for (Transaccion t : lista) {
-            sb.append(String.format("%d,%s,%s,\"%s\",\"%s\",%.2f,%s,\"%s\"\n",
-                    t.getId(),
-                    t.getFecha(),
-                    t.getTipo(),
-                    t.getCategoria() != null ? t.getCategoria().getNombre() : "General",
-                    t.getDescripcion().replace("\"", "\"\""),
-                    t.getMonto(),
-                    t.isEsGastoHormiga(),
-                    t.getNotas() != null ? t.getNotas().replace("\"", "\"\"") : ""));
+            String tipo = t.getTipo() == TipoTransaccion.INGRESO ? "INGRESO" : "GASTO";
+            String cat = t.getCategoria() != null ? t.getCategoria().getNombre() : "General";
+            String desc = t.getDescripcion() != null ? t.getDescripcion() : "";
+            String esHormiga = t.isEsGastoHormiga() ? "Sí (Hormiga 🐜)" : "No";
+            String notas = (t.getNotas() != null && !t.getNotas().trim().isEmpty()) ? t.getNotas().trim() : "-";
+            String montoStr = String.format(Locale.US, "%.2f", t.getMonto());
+
+            if (t.getTipo() == TipoTransaccion.INGRESO) {
+                totalIngresos = totalIngresos.add(t.getMonto());
+            } else {
+                totalGastos = totalGastos.add(t.getMonto());
+                if (t.isEsGastoHormiga()) {
+                    totalHormiga = totalHormiga.add(t.getMonto());
+                }
+            }
+
+            sb.append(t.getId()).append(";")
+              .append(t.getFecha()).append(";")
+              .append(tipo).append(";")
+              .append(escaparCsv(cat)).append(";")
+              .append(escaparCsv(desc)).append(";")
+              .append(montoStr).append(";")
+              .append(escaparCsv(esHormiga)).append(";")
+              .append(escaparCsv(notas)).append("\r\n");
         }
+
+        // Fila en blanco y resumen financiero ordenado al pie del reporte
+        BigDecimal balanceNeto = totalIngresos.subtract(totalGastos);
+        sb.append("\r\n");
+        sb.append(";;;;RESUMEN GENERAL DEL REPORTE;;;\r\n");
+        sb.append(";;;TOTAL INGRESOS (+);;").append(String.format(Locale.US, "%.2f", totalIngresos)).append(";;\r\n");
+        sb.append(";;;TOTAL GASTOS (-);;").append(String.format(Locale.US, "%.2f", totalGastos)).append(";;\r\n");
+        sb.append(";;;TOTAL FUGAS HORMIGA 🐜;;").append(String.format(Locale.US, "%.2f", totalHormiga)).append(";;\r\n");
+        sb.append(";;;BALANCE DISPONIBLE;;").append(String.format(Locale.US, "%.2f", balanceNeto)).append(";;\r\n");
 
         byte[] bytes = sb.toString().getBytes(StandardCharsets.UTF_8);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"Transacciones_AntiChihuan.csv\"")
                 .contentType(MediaType.parseMediaType("text/csv; charset=UTF-8"))
                 .body(bytes);
+    }
+
+    private String escaparCsv(String valor) {
+        if (valor == null || valor.trim().isEmpty()) {
+            return "-";
+        }
+        String texto = valor.trim();
+        if (texto.contains(";") || texto.contains("\"") || texto.contains("\n") || texto.contains("\r")) {
+            return "\"" + texto.replace("\"", "\"\"") + "\"";
+        }
+        return texto;
     }
 }
