@@ -137,14 +137,14 @@ public class TransaccionController {
               .append(escaparCsv(notas)).append("\r\n");
         }
 
-        // Fila en blanco y resumen financiero ordenado al pie del reporte
+        // Fila en blanco y Cuadro de Resumen Financiero ordenado y alineado al pie
         BigDecimal balanceNeto = totalIngresos.subtract(totalGastos);
         sb.append("\r\n");
-        sb.append(";;;;RESUMEN GENERAL DEL REPORTE;;;\r\n");
-        sb.append(";;;TOTAL INGRESOS (+);;").append(String.format(Locale.US, "%.2f", totalIngresos)).append(";;\r\n");
-        sb.append(";;;TOTAL GASTOS (-);;").append(String.format(Locale.US, "%.2f", totalGastos)).append(";;\r\n");
-        sb.append(";;;TOTAL FUGAS HORMIGA;;").append(String.format(Locale.US, "%.2f", totalHormiga)).append(";;\r\n");
-        sb.append(";;;BALANCE DISPONIBLE;;").append(String.format(Locale.US, "%.2f", balanceNeto)).append(";;\r\n");
+        sb.append(";;;CUADRO DE RESUMEN FINANCIERO;VALOR TOTAL (S/);;;\r\n");
+        sb.append(";;;TOTAL INGRESOS (+);").append(String.format(Locale.US, "%.2f", totalIngresos)).append(";;;\r\n");
+        sb.append(";;;TOTAL GASTOS (-);").append(String.format(Locale.US, "%.2f", totalGastos)).append(";;;\r\n");
+        sb.append(";;;TOTAL FUGAS HORMIGA;").append(String.format(Locale.US, "%.2f", totalHormiga)).append(";;;\r\n");
+        sb.append(";;;BALANCE DISPONIBLE NETO;").append(String.format(Locale.US, "%.2f", balanceNeto)).append(";;;\r\n");
 
         byte[] bytes = sb.toString().getBytes(StandardCharsets.UTF_8);
         return ResponseEntity.ok()

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../core/services/api.service';
 import { Categoria, Transaccion } from '../../core/models/finance.models';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-transacciones',
@@ -11,9 +12,14 @@ import { Categoria, Transaccion } from '../../core/models/finance.models';
   template: `
     <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
       <h4 class="fw-bold text-white mb-0 fs-5 fs-md-4">Gestión de Transacciones y Gastos Hormiga</h4>
-      <button (click)="descargarCsv()" class="btn btn-outline-warning btn-sm d-flex align-items-center gap-1 shadow-sm">
-        <i class="bi bi-file-earmark-excel-fill text-success"></i> Exportar a Excel (CSV)
-      </button>
+      <div class="d-flex align-items-center gap-2">
+        <button (click)="exportarExcel()" class="btn btn-success btn-sm d-flex align-items-center gap-1 shadow-sm fw-semibold">
+          <i class="bi bi-file-earmark-excel-fill"></i> Exportar a Excel (.xlsx)
+        </button>
+        <button (click)="descargarCsv()" class="btn btn-outline-warning btn-sm d-flex align-items-center gap-1 shadow-sm">
+          <i class="bi bi-file-earmark-spreadsheet me-1"></i> CSV
+        </button>
+      </div>
     </div>
 
     <!-- Formulario Reactivo de Registro -->
@@ -137,6 +143,63 @@ export class TransaccionesComponent implements OnInit {
 
   eliminar(id: number): void {
     this.api.eliminarTransaccion(id).subscribe(() => this.cargarTodo());
+  }
+
+  exportarExcel(): void {
+    if (!this.transacciones || this.transacciones.length === 0) return;
+
+    const dataFilas = this.transacciones.map(t => ({
+      'ID': t.id,
+      'Fecha': t.fecha,
+      'Tipo de Movimiento': t.tipo,
+      'Categoría': t.categoria?.nombre || 'General',
+      'Descripción': t.descripcion,
+      'Monto (S/)': Number(t.monto),
+      'Es Gasto Hormiga': t.esGastoHormiga ? 'Sí (Gasto Hormiga)' : 'No',
+      'Notas': t.notas || '-'
+    }));
+
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(dataFilas);
+
+    // Calcular totales para el cuadro de resumen financiero
+    const totalIngresos = this.transacciones
+      .filter(t => t.tipo === 'INGRESO')
+      .reduce((acc, t) => acc + Number(t.monto), 0);
+    const totalGastos = this.transacciones
+      .filter(t => t.tipo === 'GASTO')
+      .reduce((acc, t) => acc + Number(t.monto), 0);
+    const totalHormiga = this.transacciones
+      .filter(t => t.tipo === 'GASTO' && t.esGastoHormiga)
+      .reduce((acc, t) => acc + Number(t.monto), 0);
+    const balance = totalIngresos - totalGastos;
+
+    // Agregar cuadro de resumen alineado al final de la hoja
+    XLSX.utils.sheet_add_aoa(ws, [
+      [],
+      ['', '', '', 'CUADRO DE RESUMEN GENERAL', 'VALOR TOTAL (S/)'],
+      ['', '', '', 'TOTAL INGRESOS (+)', totalIngresos],
+      ['', '', '', 'TOTAL GASTOS (-)', totalGastos],
+      ['', '', '', 'TOTAL FUGAS HORMIGA', totalHormiga],
+      ['', '', '', 'BALANCE DISPONIBLE NETO', balance]
+    ], { origin: -1 });
+
+    // Definir anchos ordenados para cada columna
+    ws['!cols'] = [
+      { wch: 8 },  // ID
+      { wch: 14 }, // Fecha
+      { wch: 20 }, // Tipo
+      { wch: 30 }, // Categoría
+      { wch: 35 }, // Descripción
+      { wch: 15 }, // Monto
+      { wch: 20 }, // Es Gasto Hormiga
+      { wch: 20 }  // Notas
+    ];
+
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Transacciones');
+
+    const fechaHoy = new Date().toISOString().slice(0, 10);
+    XLSX.writeFile(wb, `Transacciones_AntiChihuan_${fechaHoy}.xlsx`);
   }
 
   descargarCsv(): void {
