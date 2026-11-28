@@ -101,10 +101,10 @@ public class TransaccionController {
         Long usuarioId = (Long) auth.getPrincipal();
         List<Transaccion> lista = transaccionRepository.findByUsuarioIdOrderByFechaDescIdDesc(usuarioId);
 
-        // BOM UTF-8 (\uFEFF) + directiva sep=; para que Microsoft Excel en cualquier idioma divida las columnas correctamente
+        // BOM UTF-8 nativo (\uFEFF) para que Excel reconozca tildes y caracteres en español sin alterar la codificación
         StringBuilder sb = new StringBuilder();
-        sb.append("\uFEFFsep=;\r\n");
-        sb.append("ID;Fecha;Tipo de Movimiento;Categoría;Descripción;Monto (S/);¿Es Gasto Hormiga?;Notas\r\n");
+        sb.append("\uFEFF");
+        sb.append("ID;Fecha;Tipo de Movimiento;Categoría;Descripción;Monto (S/);Es Gasto Hormiga;Notas\r\n");
 
         BigDecimal totalIngresos = BigDecimal.ZERO;
         BigDecimal totalGastos = BigDecimal.ZERO;
@@ -114,7 +114,7 @@ public class TransaccionController {
             String tipo = t.getTipo() == TipoTransaccion.INGRESO ? "INGRESO" : "GASTO";
             String cat = t.getCategoria() != null ? t.getCategoria().getNombre() : "General";
             String desc = t.getDescripcion() != null ? t.getDescripcion() : "";
-            String esHormiga = t.isEsGastoHormiga() ? "Sí (Hormiga 🐜)" : "No";
+            String esHormiga = t.isEsGastoHormiga() ? "Sí (Gasto Hormiga)" : "No";
             String notas = (t.getNotas() != null && !t.getNotas().trim().isEmpty()) ? t.getNotas().trim() : "-";
             String montoStr = String.format(Locale.US, "%.2f", t.getMonto());
 
@@ -143,7 +143,7 @@ public class TransaccionController {
         sb.append(";;;;RESUMEN GENERAL DEL REPORTE;;;\r\n");
         sb.append(";;;TOTAL INGRESOS (+);;").append(String.format(Locale.US, "%.2f", totalIngresos)).append(";;\r\n");
         sb.append(";;;TOTAL GASTOS (-);;").append(String.format(Locale.US, "%.2f", totalGastos)).append(";;\r\n");
-        sb.append(";;;TOTAL FUGAS HORMIGA 🐜;;").append(String.format(Locale.US, "%.2f", totalHormiga)).append(";;\r\n");
+        sb.append(";;;TOTAL FUGAS HORMIGA;;").append(String.format(Locale.US, "%.2f", totalHormiga)).append(";;\r\n");
         sb.append(";;;BALANCE DISPONIBLE;;").append(String.format(Locale.US, "%.2f", balanceNeto)).append(";;\r\n");
 
         byte[] bytes = sb.toString().getBytes(StandardCharsets.UTF_8);

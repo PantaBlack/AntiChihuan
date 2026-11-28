@@ -141,7 +141,8 @@ export class TransaccionesComponent implements OnInit {
 
   descargarCsv(): void {
     this.api.exportarCsv().subscribe(blob => {
-      const url = window.URL.createObjectURL(blob);
+      const csvBlob = new Blob([blob], { type: 'text/csv;charset=utf-8;' });
+      const url = window.URL.createObjectURL(csvBlob);
       const a = document.createElement('a');
       const fechaHoy = new Date().toISOString().slice(0, 10);
       a.href = url;
